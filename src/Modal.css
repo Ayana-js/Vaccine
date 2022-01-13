@@ -1,0 +1,19 @@
+.modal {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+
+.modal.active {
+    transform: scale(1);
+}
+
+.modalContent {
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+}
