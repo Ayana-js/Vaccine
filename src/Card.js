@@ -7,10 +7,17 @@ import QRCode from "qrcode.react";
 import {Button} from '@mui/material';
 import './App.css';
 import Modal from './Modal';
+<<<<<<< HEAD
 import {createTheme} from '@mui/material/styles';
 import {ThemeProvider} from '@emotion/react';
 import {useSearchParams} from 'react-router-dom';
 import Preloader from './Preloader';
+=======
+import './Card.css'
+import {createTheme} from '@mui/material/styles';
+import {ThemeProvider} from '@emotion/react';
+import {useSearchParams} from 'react-router-dom';
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
 
 const theme = createTheme({
     palette: {
@@ -32,19 +39,27 @@ const PersonCard = () => {
     const [numberId, setNumberId] = useState('')
     const [serialId, setSerialId] = useState('')
     const [searchParams] = useSearchParams();
+<<<<<<< HEAD
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
 
     useEffect(() => {
         setIsFetching(true)
+=======
+
+    useEffect(() => {
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
         axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + searchParams.get('phone'),
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
             }).catch(err => console.log(err))
             .then(res => {
+<<<<<<< HEAD
                 setIsFetching(false)
                 const propusk = res.data.propusk
+=======
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
                 const inn = res.data.passport.inn
                 const numberId = res.data.passport.numberId
                 const serialId = res.data.passport.serialId
@@ -52,7 +67,10 @@ const PersonCard = () => {
                 const fio = res.data.propusk.fio
                 const vaccines = res.data.propusk.vaccines
                 const photo = res.data.propusk.photo
+<<<<<<< HEAD
                 setPropusk(propusk)
+=======
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
                 setQrLink(qrLink)
                 setFio(fio)
                 setVaccines(vaccines)
@@ -64,12 +82,15 @@ const PersonCard = () => {
     }, [])
 
     return <div>
+<<<<<<< HEAD
       {propusk === null ? 
      <div> <p> Запись отсутствует. Рекомендуем получить вакцину прививочном пункте. 
          Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть 
          здесь https://vc.emed.gov.kg (https://vc.emed.gov.kg/) </p> </div>: null
          }
       {isFetching? <Preloader />: 
+=======
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
         <Card sx={{maxWidth: 345}}>
             <CardContent>
                 <Typography variant="h5" component="div">
@@ -101,7 +122,10 @@ const PersonCard = () => {
                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId}/>
             </CardContent>
         </Card>
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
     </div>
 }
 

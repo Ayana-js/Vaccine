@@ -1,5 +1,9 @@
 import {Button, Link} from "@mui/material";
+<<<<<<< HEAD
 import React from "react";
+=======
+import React, {useEffect, useState} from "react";
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
 import "./Modal.css"
 
 const Modal = ({active, setActive, inn, numberId, serialId}) => {
@@ -17,7 +21,11 @@ const Modal = ({active, setActive, inn, numberId, serialId}) => {
             <div>
                 <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
                    download>
+<<<<<<< HEAD
                     <Button size="small" style={{marginBottom: '10px'}}> Английский / English
+=======
+                    <Button size="small" style={{marginBottom: '10px'}}> Английский/English
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
                     </Button>
                 </a>
             </div>

@@ -9,7 +9,11 @@ function App() {
     <BrowserRouter>
     <div className='App'>
       <Routes>
+<<<<<<< HEAD
       <Route path='/'
+=======
+      <Route path='/vaccine'
+>>>>>>> 0b676e169fbbfe2928a69655419e07cc9a8294fd
                   element={<PersonCard />}/>
       <Route path='/vaccine/cerEng'
                   element={<EngCertificate />}/>
