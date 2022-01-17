@@ -33,17 +33,18 @@ const PersonCard = () => {
     const [serialId, setSerialId] = useState('')
     const [searchParams] = useSearchParams();
     const [isFetching, setIsFetching] = useState(false)
+    const [propusk, setPropusk] = useState()
 
     useEffect(() => {
         setIsFetching(true)
         axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + searchParams.get('phone'),
-          //  axios.get('https://ibank2.cbk.kg/minzdrav/covid-pass?phone=996772140014',
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
             }).catch(err => console.log(err))
             .then(res => {
                 setIsFetching(false)
+                const propusk = res.data.propusk
                 const inn = res.data.passport.inn
                 const numberId = res.data.passport.numberId
                 const serialId = res.data.passport.serialId
@@ -51,6 +52,7 @@ const PersonCard = () => {
                 const fio = res.data.propusk.fio
                 const vaccines = res.data.propusk.vaccines
                 const photo = res.data.propusk.photo
+                setPropusk(propusk)
                 setQrLink(qrLink)
                 setFio(fio)
                 setVaccines(vaccines)
@@ -62,6 +64,11 @@ const PersonCard = () => {
     }, [])
 
     return <div>
+      {propusk === null ? 
+     <div> <p> Запись отсутствует. Рекомендуем получить вакцину прививочном пункте. 
+         Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть 
+         здесь https://vc.emed.gov.kg (https://vc.emed.gov.kg/) </p> </div>: null
+         }
       {isFetching? <Preloader />: 
         <Card sx={{maxWidth: 345}}>
             <CardContent>
