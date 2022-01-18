@@ -34,15 +34,19 @@ const PersonCard = () => {
     const [searchParams] = useSearchParams();
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
-
-    setIsFetching(true)
+    const [err, setErr] = useState()
+    
+    useEffect(() => {
+        setIsFetching(true)
+    }, [])
+    
 
     useEffect(() => {
         axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + searchParams.get('phone'),
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
-            }).catch(err => console.log(err))
+            }).catch(err =>  setErr(err))
             .then(res => {
                 setIsFetching(false)
                 const propusk = res.data.propusk
@@ -65,21 +69,22 @@ const PersonCard = () => {
             })
     }, [])
 
-    const PersonCard = () => {
-    return <div>
-      {/* {propusk === null? 
-      <p> Запись отсутствует. Рекомендуем получить вакцину прививочном пункте. 
-         Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть 
-         здесь https://vc.emed.gov.kg (https://vc.emed.gov.kg/) </p>: null } */}
-         
+    return <div>   
+        
       {isFetching? <Preloader />: 
         <Card sx={{maxWidth: 345}}>
-            <CardContent>
+            {err? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
+            </p>: <div>
+            {propusk === undefined? 
+        <div style={{marginTop: 250, marginBottom: 400}} > <p> Запись отсутствует. Рекомендуем получить вакцину в прививочном пункте. 
+        Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
+        <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> : <div> 
+        <CardContent >
                 <Typography variant="h5" component="div">
                     <span> {fio} </span>
                 </Typography>
-                <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}}/>
-                <Typography variant="body2" color="text.secondary">
+                <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}} onClick={() => setActive(false)}/>
+                <Typography  onClick={() => setActive(false)} variant="body2" color="text.secondary">
                     {vaccines.map(v => <span key={v.doza}>
                             <span> {v.vaccine_title}: {v.vaccine_name}, {v.vaccination_date}</span>
                         </span>
@@ -87,6 +92,7 @@ const PersonCard = () => {
                 </Typography>
                 <div>
                     <QRCode
+                        onClick={() => setActive(false)}
                         value={qrLink} style={{marginRight: 10, marginBottom: 20, width: 200, height: 200}}
                         bgColor={"#ffffff"}
                         fgColor={"#007d82"}
@@ -102,9 +108,9 @@ const PersonCard = () => {
                     </Button>
                 </ThemeProvider>
                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId}/>
-            </CardContent>
+            </CardContent> </div> } </div> }
         </Card> } 
     </div> 
-    } }
+     }
 
 export default PersonCard
