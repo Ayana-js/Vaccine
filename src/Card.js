@@ -11,6 +11,7 @@ import {createTheme} from '@mui/material/styles';
 import {ThemeProvider} from '@emotion/react';
 import {useSearchParams} from 'react-router-dom';
 import Preloader from './Preloader';
+import logo from './img/logo.jpg'
 
 const theme = createTheme({
     palette: {
@@ -96,6 +97,14 @@ const PersonCard = () => {
                         value={qrLink} style={{marginRight: 10, marginBottom: 20, width: 200, height: 200}}
                         bgColor={"#ffffff"}
                         fgColor={"#007d82"}
+                        imageSettings={{
+                            src: logo,
+                            x: null,
+                            y: null,
+                            height: 30,
+                            width: 30,
+                            excavate: true,
+                          }}
                     />
                 </div>
                 <ThemeProvider theme={theme}>
@@ -107,7 +116,7 @@ const PersonCard = () => {
                         Получить сертификат
                     </Button>
                 </ThemeProvider>
-                <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId}/>
+                <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId} />
             </CardContent> </div> } </div> }
         </Card> } 
     </div> 
