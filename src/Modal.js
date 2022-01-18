@@ -15,11 +15,8 @@ const Modal = ({active, setActive, inn, numberId, serialId}) => {
                 </a>
             </div>
             <div>
-                <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
-                   download>
                     <Button size="small" style={{marginBottom: '10px', textDecoration: 'none'}}> Английский/English
                     </Button>
-                </a>
             </div>
         </div>
     </div>
