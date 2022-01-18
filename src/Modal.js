@@ -15,10 +15,9 @@ const Modal = ({active, setActive, inn, numberId, serialId}) => {
                 </a>
             </div>
             <div>
-                   download>
-                    <Button size="small" style={{marginBottom: '10px', textDecoration: 'none'}}> Английский/English
+                    <Button size="small" style={{marginBottom: '10px', textDecoration: 'none'}} 
+                    onClick={() => {return <div> <input placeholder="Enter your passport number"/> </div> }} > Английский/English
                     </Button>
-              
             </div>
         </div>
     </div>
