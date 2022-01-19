@@ -1,5 +1,6 @@
 import {Button} from "@mui/material";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import EngCertificate from "./EngCertificate";
 import "./Modal.css"
 
@@ -16,8 +17,9 @@ const Modal = ({ setActive, active, inn, numberId, serialId}) => {
                 </a>
             </div>
             <div> 
+                <NavLink to="/cerEng">
                     <Button onClick={() => setIsActive(true)} size="small" style={{marginBottom: '10px', textDecoration: 'none'}} > Английский/English </Button>
-                    <EngCertificate  inn={inn} numberId={numberId} serialId={serialId} isActive={isActive} setIsActive={setIsActive} />
+                </NavLink>   
             </div>
         </div>
     </div>

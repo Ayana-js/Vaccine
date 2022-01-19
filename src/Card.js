@@ -36,14 +36,15 @@ const PersonCard = () => {
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
+    const search = searchParams.get('phone')
     
     useEffect(() => {
         setIsFetching(true)
     }, [])
-    
+
 
     useEffect(() => {
-        axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + searchParams.get('phone'),
+        axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
@@ -69,6 +70,8 @@ const PersonCard = () => {
                 setSerialId(serialId)
             })
     }, [])
+
+    localStorage.setItem('phone', search)
 
     return <div>   
         
