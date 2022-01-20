@@ -22,7 +22,6 @@ const theme = createTheme({
     },
 });
 
-
 const PersonCard = () => {
     const [inn, setInn] = useState('')
     const [qrLink, setQrLink] = useState('')
@@ -37,7 +36,7 @@ const PersonCard = () => {
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
     const search = searchParams.get('phone')
-    
+  
     useEffect(() => {
         setIsFetching(true)
     }, [])
