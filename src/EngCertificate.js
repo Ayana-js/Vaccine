@@ -12,13 +12,15 @@ const theme = createTheme({
             contrastText: '#fff',
         },
     },
-});
+})
 
 const EngCertificate = () => {
-       const [passNumber, setPassNumber] = useState()  
+       const [passNumber, setPassNumber] = useState('')  
        const [numberId, setNumberId] = useState('')
        const [serialId, setSerialId] = useState('')
        const [inn, setInn] = useState('')
+       const [num, setNum] = useState('')
+       const [str, setStr] = useState('')
        const search = localStorage.getItem('phone')
 
        useEffect(() => {
@@ -37,20 +39,25 @@ const EngCertificate = () => {
                 setSerialId(serialId)
             })
     }, [])
-
-       
+    const onClickSend = () => {
+        let newString = passNumber.toString().replace(/[0-9]/g, '')
+        let newNumber = passNumber.toString().replace(/\D/g, '')
+        setStr( newString)
+        setNum( newNumber)
+    } 
     return <div style={{marginTop: 200, width: 300}} >
-    <p> Укажите паспортные данные </p>  
+    <p> Укажите паспортные данные </p>
     <p style={{fontSize: 13, marginTop: 50}} > Для получения сертификата на английском языке введите данные с загранпаспорта</p>
-    <input placeholder="Номер загранпаспорта" value={passNumber} onChange={() => setPassNumber(passNumber)} /> 
+    <input placeholder="Номер загранпаспорта" onChange={(e) => setPassNumber(e.target.value)} /> 
     <p  style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите  заглавные буквы и номер без пробелов</p>
     
            <ThemeProvider theme={theme}> 
            <div>
-           <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
+        
+           <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
             download>
-            <Button style={{textDecoration: 'underline #fecc00'}} size="small"  variant="contained"
-               color="neutral"> Отправить </Button>
+            <Button onClick={onClickSend} style={{textDecoration: 'underline #fecc00'}} size="small"  variant="contained"
+               color="neutral"> Получить сертификат </Button>
             </a>
             </div>
            </ThemeProvider>

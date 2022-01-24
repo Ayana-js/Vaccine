@@ -35,10 +35,12 @@ const PersonCard = () => {
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
+    const [show, setShow] = useState(false)
     const search = searchParams.get('phone')
   
     useEffect(() => {
         setIsFetching(true)
+        setShow(true)
     }, [])
 
 
@@ -69,12 +71,18 @@ const PersonCard = () => {
                 setSerialId(serialId)
             })
     }, [])
+  localStorage.setItem('phone', search)
 
-    localStorage.setItem('phone', search)
+  useEffect(() => {
+      if (show) {
+      setTimeout(() => {
+      setIsFetching(false)
+      setShow(false)
+    } , 3000)}
+  }, [show]);
 
     return <div>   
-        
-      {isFetching? <Preloader />: 
+      {isFetching || show ? <Preloader />: 
         <Card sx={{maxWidth: 345}}>
             {err? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
             </p>: <div>
@@ -82,7 +90,7 @@ const PersonCard = () => {
         <div style={{marginTop: 250, marginBottom: 400}} > <p> Запись отсутствует. Рекомендуем получить вакцину в прививочном пункте. 
         Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
         <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> : <div> 
-        <CardContent >
+        <CardContent>
                 <Typography variant="h5" component="div">
                     <span> {fio} </span>
                 </Typography>
