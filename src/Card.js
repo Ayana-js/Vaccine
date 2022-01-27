@@ -95,7 +95,9 @@ const PersonCard = () => {
                 <Typography variant="h5" component="div">
                     <span> {fio} </span>
                 </Typography>
+                <a href={`data:image/jpeg;base64,${photo}`} download>
                 <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}} onClick={() => setActive(false)}/>
+                </a>
                 <Typography  onClick={() => setActive(false)} variant="body2" color="text.secondary">
                     {vaccines.map(v => <span key={v.doza}>
                             <span> {v.vaccine_title}: {v.vaccine_name}, {v.vaccination_date}</span>

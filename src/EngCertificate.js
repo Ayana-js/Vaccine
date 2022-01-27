@@ -21,6 +21,7 @@ const EngCertificate = () => {
     const [inn, setInn] = useState('')
     const [num, setNum] = useState('')
     const [str, setStr] = useState('')
+    const [email, setEmail] = useState('')
     const [isFetching, setIsFetching] = useState(false)
     const search = localStorage.getItem('phone')
 
@@ -62,6 +63,7 @@ const EngCertificate = () => {
                 <input placeholder="Номер загранпаспорта" onChange={(e) => setPassNumber(e.target.value)}/>
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
                     пробелов</p>
+                <input placeholder="Введите свой e-mail" onChange={(e) => setEmail(e.target.value)}/>
 
                 <ThemeProvider theme={theme}>
                     <div>
