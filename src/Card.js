@@ -36,6 +36,7 @@ const PersonCard = () => {
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
     const [show, setShow] = useState(false)
+    const [loading, setLoading] =useState(false)
     const search = searchParams.get('phone')
   
     useEffect(() => {
@@ -78,18 +79,18 @@ const PersonCard = () => {
       setTimeout(() => {
       setIsFetching(false)
       setShow(false)
-    } , 3000)}
+    } , 1500)}
   }, [show]);
 
     return <div>   
-      {isFetching || show ? <Preloader />: 
-        <Card sx={{maxWidth: 345}}>
+      {isFetching || show ? <Preloader />:
+       <div>
             {err? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
             </p>: <div>
-            {propusk === undefined? 
-        <div style={{marginTop: 250, marginBottom: 400}} > <p> Запись отсутствует. Рекомендуем получить вакцину в прививочном пункте. 
+            {propusk === undefined?
+        <div style={{marginTop: 250, marginBottom: 400}} > <p> Запись отсутствует. Рекомендуем получить вакцину в прививочном пункте.
         Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
-        <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> : <div> 
+        <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> : <div>
         <CardContent>
                 <Typography variant="h5" component="div">
                     <span> {fio} </span>
@@ -128,7 +129,7 @@ const PersonCard = () => {
                 </ThemeProvider>
                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId} />
             </CardContent> </div> } </div> }
-        </Card> } 
+       </div>}
     </div> 
      }
 
