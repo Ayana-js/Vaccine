@@ -14,24 +14,18 @@ const Modal = ({ active, inn, numberId, serialId}) => {
             } , 5000)}
     }, [isFetching])
 
-   
     return  <div className={active ? "modal active" : "modal"}>
         {isFetching? <p> Загрузка ... </p>:
 
-        <div className="modalContent" onClick={e => e.stopPropagation()}>
-            <p>На каком языке вы бы хотели получить сертификат?</p>
-            <div>
-                {/*<a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} target="_blank"*/}
-                {/*   download>*/}
-                <NavLink to="/cerKgz">
-                    <Button onClick={() =>  {setIsFetching(true)} } size="small" style={{marginBottom: '10px', textDecoration: 'none'}}> Русский / Кыргызский </Button>
-                {/*</a>*/}
-                </NavLink>
-
+        <div>
+            <p className="text">На каком языке вы бы хотели получить сертификат?</p>
+            <div className="linkTop">
+                    <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} target="_blank"
+                       download className="links"  onClick={() =>  {setIsFetching(true)} } > Русский / Кыргызский </a>
             </div>
             <div>
-                <NavLink to="/cerEng">
-                    <Button onClick={() => setIsActive(true)} size="small" style={{marginBottom: '10px', textDecoration: 'none'}} > Английский/English </Button>
+                <NavLink to="/cerEng" style={{textDecoration: "transparent"}}>
+                    <a  className="links" onClick={() => setIsActive(true)}> Английский/English </a>
                 </NavLink>   
             </div>
         </div> }

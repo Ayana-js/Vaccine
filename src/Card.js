@@ -1,26 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import QRCode from "qrcode.react";
-import {Button} from '@mui/material';
 import './App.css';
 import Modal from './Modal';
-import {createTheme} from '@mui/material/styles';
 import {ThemeProvider} from '@emotion/react';
 import {useSearchParams} from 'react-router-dom';
 import Preloader from './Preloader';
 import logo from './img/logo.jpg'
-
-const theme = createTheme({
-    palette: {
-        neutral: {
-            main: '#fecc00',
-            contrastText: '#fff',
-        },
-    },
-});
+import './Card.css'
 
 const PersonCard = () => {
     const [inn, setInn] = useState('')
@@ -36,9 +25,9 @@ const PersonCard = () => {
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
     const [show, setShow] = useState(false)
-    const [loading, setLoading] =useState(false)
+    const [loading, setLoading] = useState(false)
     const search = searchParams.get('phone')
-  
+
     useEffect(() => {
         setIsFetching(true)
         setShow(true)
@@ -50,7 +39,7 @@ const PersonCard = () => {
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
-            }).catch(err =>  setErr(err))
+            }).catch(err => setErr(err))
             .then(res => {
                 setIsFetching(false)
                 const propusk = res.data.propusk
@@ -72,67 +61,68 @@ const PersonCard = () => {
                 setSerialId(serialId)
             })
     }, [])
-  localStorage.setItem('phone', search)
+    localStorage.setItem('phone', search)
 
-  useEffect(() => {
-      if (show) {
-      setTimeout(() => {
-      setIsFetching(false)
-      setShow(false)
-    } , 1500)}
-  }, [show]);
+    useEffect(() => {
+        if (show) {
+            setTimeout(() => {
+                setIsFetching(false)
+                setShow(false)
+            }, 1500)
+        }
+    }, [show]);
 
-    return <div>   
-      {isFetching || show ? <Preloader />:
-       <div>
-            {err? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
-            </p>: <div>
-            {propusk === undefined?
-        <div style={{marginTop: 250, marginBottom: 400}} > <p> Запись отсутствует. Рекомендуем получить вакцину в прививочном пункте.
-        Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
-        <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> : <div>
-        <CardContent>
-                <Typography variant="h5" component="div">
-                    <span> {fio} </span>
-                </Typography>
-                <a href={`data:image/jpeg;base64,${photo}`} download>
-                <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}} onClick={() => setActive(false)}/>
-                </a>
-                <Typography  onClick={() => setActive(false)} variant="body2" color="text.secondary">
-                    {vaccines.map(v => <span key={v.doza}>
+    return <div>
+        {isFetching || show ? <Preloader/> :
+            <div>
+                {err ? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
+                </p> : <div>
+                    {propusk === undefined ?
+                        <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
+                            Рекомендуем получить вакцину в прививочном пункте.
+                            Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
+                           <div> <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> </div> : <div>
+                            <CardContent>
+                                <Typography variant="h6" component="div">
+                                    <span> {fio} </span>
+                                </Typography>
+                                <a href={`data:image/jpeg;base64,${photo}`} download>
+                                    <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}}
+                                         onClick={() => setActive(false)}/>
+                                </a>
+                                <div className="text-dec">
+                                <Typography onClick={() => setActive(false)} variant="body2" color="text.secondary">
+                                    {vaccines.map(v => <span key={v.doza} className="text">
                             <span> {v.vaccine_title}: {v.vaccine_name}, {v.vaccination_date}</span>
                         </span>
-                    )}
-                </Typography>
-                <div>
-                    <QRCode
-                        onClick={() => setActive(false)}
-                        value={qrLink} style={{marginRight: 10, marginBottom: 20, width: 200, height: 200}}
-                        bgColor={"#ffffff"}
-                        fgColor={"#007d82"}
-                        imageSettings={{
-                            src: logo,
-                            x: null,
-                            y: null,
-                            height: 30,
-                            width: 30,
-                            excavate: true,
-                          }}
-                    />
-                </div>
-                <ThemeProvider theme={theme}>
-                    <Button onClick={() => setActive(true)}
-                            className='button'
-                            variant="contained"
-                            color="neutral"
-                    >
-                        Получить сертификат
-                    </Button>
-                </ThemeProvider>
-                <Modal active={active} setActive={setActive} numberId={numberId} inn={inn} serialId={serialId} />
-            </CardContent> </div> } </div> }
-       </div>}
-    </div> 
-     }
+                                    )}
+                                </Typography>
+                                </div>
+                                <div>
+                                    <QRCode
+                                        onClick={() => setActive(false)}
+                                        value={qrLink}
+                                        style={{marginRight: 10, marginBottom: 20, width: 200, height: 200}}
+                                        bgColor={"#ffffff"}
+                                        fgColor={"#007d82"}
+                                        imageSettings={{
+                                            src: logo,
+                                            x: null,
+                                            y: null,
+                                            height: 30,
+                                            width: 30,
+                                            excavate: true,
+                                        }}
+                                    />
+                                </div>
+                                <a className="ant-btn btn-primary" onClick={() => setActive(true)}>
+                                    <span>Получить сертификат</span>
+                                </a>
+                                <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
+                                       serialId={serialId}/>
+                            </CardContent></div>} </div>}
+            </div>}
+    </div>
+}
 
 export default PersonCard

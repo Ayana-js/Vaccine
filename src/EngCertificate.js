@@ -57,24 +57,31 @@ const EngCertificate = () => {
     return <div style={{marginTop: '30%', maxWidth: 450}}>
         {isFetching ? <p> Загрузка ... </p> :
             <div>
-                <p> Укажите паспортные данные </p>
-                <p style={{fontSize: 13, marginTop: 50}}> Для получения сертификата на английском языке введите данные с
+                <h1 className="text"> Укажите паспортные данные </h1>
+                <p style={{fontSize: 13, marginTop: 50}} className="text"> Для получения сертификата на английском языке введите данные с
                     загранпаспорта</p>
-                <input placeholder="Номер загранпаспорта" onChange={(e) => setPassNumber(e.target.value)}/>
+                <div className='main-input'>
+                    <input type='text' className='main-input-content' placeholder='Номер загранпаспорта' onChange={(e) => setPassNumber(e.target.value)}/>
+                </div>
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
                     пробелов</p>
-                <input placeholder="Введите свой e-mail" onChange={(e) => setEmail(e.target.value)}/>
-
+                {/*<input placeholder="Введите свой e-mail" onChange={(e) => setEmail(e.target.value)}/>*/}
                 <ThemeProvider theme={theme}>
                     <div>
-
-                        <a onClick={() => setIsFetching(true)}
-                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
-                           target="_blank"
+                        {/*<a onClick={() => setIsFetching(true)}*/}
+                        {/*   href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}*/}
+                        {/*   target="_blank"*/}
+                        {/*   download>*/}
+                        {/*    <Button onClick={onClickSend} style={{textDecoration: 'underline #fecc00'}} size="small"*/}
+                        {/*            variant="contained"*/}
+                        {/*            color="neutral"> Получить сертификат </Button>*/}
+                        {/*</a>*/}
+                        <a  onClick={() => setIsFetching(true)}
+                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
+                          target="_blank" className='ant-btn btn-primary'
                            download>
-                            <Button onClick={onClickSend} style={{textDecoration: 'underline #fecc00'}} size="small"
-                                    variant="contained"
-                                    color="neutral"> Получить сертификат </Button>
+
+                            <span onClick={onClickSend}>Получить сертификат</span>
                         </a>
                     </div>
                 </ThemeProvider></div>}
