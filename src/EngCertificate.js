@@ -1,18 +1,7 @@
 import {Button} from "@mui/material";
 import React, {useEffect, useState} from "react";
-import {ThemeProvider} from '@emotion/react';
-import {createTheme} from '@mui/material/styles';
 import './EngCertificate.css'
 import axios from "axios";
-
-const theme = createTheme({
-    palette: {
-        neutral: {
-            main: '#fecc00',
-            contrastText: '#fff',
-        },
-    },
-})
 
 const EngCertificate = () => {
     const [passNumber, setPassNumber] = useState('')
@@ -66,7 +55,6 @@ const EngCertificate = () => {
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
                     пробелов</p>
                 {/*<input placeholder="Введите свой e-mail" onChange={(e) => setEmail(e.target.value)}/>*/}
-                <ThemeProvider theme={theme}>
                     <div>
                         {/*<a onClick={() => setIsFetching(true)}*/}
                         {/*   href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}*/}
@@ -84,7 +72,7 @@ const EngCertificate = () => {
                             <span onClick={onClickSend}>Получить сертификат</span>
                         </a>
                     </div>
-                </ThemeProvider></div>}
+                </div>}
     </div>
 }
 export default EngCertificate

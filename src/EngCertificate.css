@@ -61,14 +61,14 @@
     border-radius: 12px;
     color: #007480;
     display: inline-flex;
-    font-size: 10px;
+    font-size: 12px;
     height: 40px;
     justify-content: center;
     line-height: 1.5;
     padding: 0 26px;
     letter-spacing: 0.1px;
     margin-top: 10px;
-    width: 155px;
+    width: 170px;
 }
 
 .ant-btn:hover {

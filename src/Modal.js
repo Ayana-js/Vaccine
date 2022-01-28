@@ -25,7 +25,7 @@ const Modal = ({ active, inn, numberId, serialId}) => {
             </div>
             <div>
                 <NavLink to="/cerEng" style={{textDecoration: "transparent"}}>
-                    <a  className="links" onClick={() => setIsActive(true)}> Английский/English </a>
+                    <a  className="links" onClick={() => setIsActive(true)}> Английский / English </a>
                 </NavLink>   
             </div>
         </div> }
