@@ -5,10 +5,9 @@
 }
 
 .text-dec {
-    margin-top: 100px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
-
 
 .ant-btn {
     align-items: center;
@@ -25,7 +24,7 @@
     padding: 0 32px;
     letter-spacing: 0.1px;
     margin-top: 50px;
-    width: 300px;
+    width: 170px;
 }
 
 
