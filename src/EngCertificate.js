@@ -54,16 +54,7 @@ const EngCertificate = () => {
                 </div>
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
                     пробелов</p>
-                {/*<input placeholder="Введите свой e-mail" onChange={(e) => setEmail(e.target.value)}/>*/}
                     <div>
-                        {/*<a onClick={() => setIsFetching(true)}*/}
-                        {/*   href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}*/}
-                        {/*   target="_blank"*/}
-                        {/*   download>*/}
-                        {/*    <Button onClick={onClickSend} style={{textDecoration: 'underline #fecc00'}} size="small"*/}
-                        {/*            variant="contained"*/}
-                        {/*            color="neutral"> Получить сертификат </Button>*/}
-                        {/*</a>*/}
                         <a  onClick={() => setIsFetching(true)}
                          href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
                           target="_blank" className='ant-btn btn-primary'
