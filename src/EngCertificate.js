@@ -1,4 +1,3 @@
-import {Button} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import './EngCertificate.css'
 import axios from "axios";
@@ -10,7 +9,6 @@ const EngCertificate = () => {
     const [inn, setInn] = useState('')
     const [num, setNum] = useState('')
     const [str, setStr] = useState('')
-    const [email, setEmail] = useState('')
     const [isFetching, setIsFetching] = useState(false)
     const search = localStorage.getItem('phone')
 
@@ -59,7 +57,6 @@ const EngCertificate = () => {
                          href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
                           target="_blank" className='ant-btn btn-primary'
                            download>
-
                             <span onClick={onClickSend}>Получить сертификат</span>
                         </a>
                     </div>
