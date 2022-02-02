@@ -115,11 +115,16 @@ const PersonCard = () => {
                                         }}
                                     />
                                 </div>
-                                <a className="ant-btn btn-primary" onClick={() => setActive(true)}>
-                                    <span>Получить сертификат</span>
-                                </a>
+                                <button className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >
+                                  Получить сертификат
+                                </button>
                                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
                                        serialId={serialId}/>
+                                <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
+                                    <button className="ant-btn btn-primary">
+                                        Получить результаты ПЦР
+                                    </button>
+                                </div>
                             </CardContent></div>} </div>}
             </div>}
     </div>

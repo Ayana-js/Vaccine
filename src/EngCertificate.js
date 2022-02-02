@@ -53,14 +53,14 @@ const EngCertificate = () => {
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
                     пробелов</p>
                     <div>
-                        <a  onClick={() => setIsFetching(true)}
+                        <a onClick={onClickSend} style={{textDecoration: 'none'}}
                          href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
-                          target="_blank" className='ant-btn btn-primary'
+                          target="_blank"
                            download>
-                            <span onClick={onClickSend}>Получить сертификат</span>
+                            <button  data-title="Введите номер загранпаспорта" className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </button>
                         </a>
                     </div>
-                </div>}
+               </div>}
     </div>
 }
 export default EngCertificate

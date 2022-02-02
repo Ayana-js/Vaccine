@@ -9,6 +9,14 @@
     margin-bottom: 10px;
 }
 
+.button {
+    transform: scale(1);
+}
+
+.button notActive {
+    transform: scale(0);
+}
+
 .ant-btn {
     align-items: center;
     background-color: #e9f4f5;
@@ -16,6 +24,7 @@
     border-radius: 12px;
     display: inline-flex;
     font-size: 16px;
+    font-weight: 600;
     height: 48px;
     justify-content: center;
     line-height: 1.5;
