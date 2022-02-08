@@ -15,16 +15,12 @@
     white-space: normal;
     overflow: hidden;
     line-height: 1.43;
-    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-    transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
 .modal.active {
     visibility: visible;
     padding: 16px;
     height: 110px;
-    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-    transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
 .btn-vertical:hover {

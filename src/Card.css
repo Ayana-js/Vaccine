@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+.main-block {
+    max-width: 350px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
 .text {
     font-family: 'Open Sans', sans-serif;
 }
@@ -20,7 +26,6 @@
 .ant-btn {
     align-items: center;
     background-color: #e9f4f5;
-    border-color: #e9f4f5;
     border-radius: 12px;
     display: inline-flex;
     font-size: 16px;
@@ -32,6 +37,7 @@
     letter-spacing: 0.1px;
     margin-top: 50px;
     width: 170px;
+    outline: none;
 }
 
 
@@ -45,14 +51,6 @@
     touch-action: manipulation;
     background: #dfeef0;
     border-color: #d4d6d6;
-}
-
-.ant-btn, .ant-btn:active, .ant-btn:focus {
-    outline: 0;
-    outline-color: initial;
-    outline-style: initial;
-    outline-width: 0px;
-    color: #1b1d1d;
 }
 
 .btn-primary {

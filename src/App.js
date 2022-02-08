@@ -3,8 +3,7 @@ import PersonCard from './Card';
 import { Route, Routes } from 'react-router-dom'
 import EngCertificate from './EngCertificate';
 import KgCertificate from "./KgCertificate";
-
-
+import Result from "./Result";
 
 function App() {
   return (
@@ -16,6 +15,8 @@ function App() {
                   element={ <EngCertificate /> }/>
       <Route path='/cerKgz'
                   element={<KgCertificate />}/>
+        <Route path={'/result'}
+                   element={<Result /> }/>
       </Routes>
     </div>
   );

@@ -5,13 +5,13 @@ import Typography from '@mui/material/Typography';
 import QRCode from "qrcode.react";
 import './App.css';
 import Modal from './Modal';
-import {ThemeProvider} from '@emotion/react';
-import {useSearchParams} from 'react-router-dom';
+import {NavLink, useSearchParams} from 'react-router-dom';
 import Preloader from './Preloader';
 import logo from './img/logo.jpg'
 import './Card.css'
 
 const PersonCard = () => {
+    const [result, setResult] = useState([])
     const [inn, setInn] = useState('')
     const [qrLink, setQrLink] = useState('')
     const [fio, setFio] = useState('')
@@ -25,8 +25,8 @@ const PersonCard = () => {
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
     const [show, setShow] = useState(false)
-    const [loading, setLoading] = useState(false)
     const search = searchParams.get('phone')
+    const [analisis, setAnalisis] = useState([])
 
     useEffect(() => {
         setIsFetching(true)
@@ -42,6 +42,7 @@ const PersonCard = () => {
             }).catch(err => setErr(err))
             .then(res => {
                 setIsFetching(false)
+                const result = res.data.propusk.result
                 const propusk = res.data.propusk
                 const inn = res.data.passport.inn
                 const numberId = res.data.passport.numberId
@@ -50,8 +51,10 @@ const PersonCard = () => {
                 const fio = res.data.propusk.fio
                 const vaccines = res.data.propusk.vaccines
                 const photo = res.data.propusk.photo
+                const analisis = res.data.propusk.positiveanalyzis
 
                 setPropusk(propusk)
+                setResult(result)
                 setQrLink(qrLink)
                 setFio(fio)
                 setVaccines(vaccines)
@@ -59,6 +62,7 @@ const PersonCard = () => {
                 setInn(inn)
                 setNumberId(numberId)
                 setSerialId(serialId)
+                setAnalisis(analisis)
             })
     }, [])
     localStorage.setItem('phone', search)
@@ -74,7 +78,7 @@ const PersonCard = () => {
 
     return <div>
         {isFetching || show ? <Preloader/> :
-            <div>
+            <div className='main-block'>
                 {err ? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
                 </p> : <div>
                     {propusk === undefined ?
@@ -115,15 +119,19 @@ const PersonCard = () => {
                                         }}
                                     />
                                 </div>
-                                <button className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >
+                                <a className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >
                                   Получить сертификат
-                                </button>
+                                </a>
                                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
                                        serialId={serialId}/>
+                                <div> { analisis?
                                 <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
-                                    <button className="ant-btn btn-primary">
+                                    <NavLink to="/result" style={{textDecoration: 'none'}}>
+                                    <a className="ant-btn btn-primary">
                                         Получить результаты ПЦР
-                                    </button>
+                                    </a>
+                                    </NavLink>
+                                </div>: null }
                                 </div>
                             </CardContent></div>} </div>}
             </div>}
