@@ -85,7 +85,7 @@ const PersonCard = () => {
                         <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
                             Рекомендуем получить вакцину в прививочном пункте.
                             Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
-                           <span> <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </span> </div> : <div>
+                           <span> <a href="https://vc.emed.gov.kg" target="_blank"> https://vc.emed.gov.kg </a> </span> </div> : <div>
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     <span> {fio} </span>
@@ -96,9 +96,9 @@ const PersonCard = () => {
                                 </a>
                                 <div className="text-dec">
                                 <Typography onClick={() => setActive(false)} variant="body2" color="text.secondary">
-                                    {vaccines.map(v => <span key={v.doza} className="text">
-                            <span> {v.vaccine_title}: {v.vaccine_name}, {v.vaccination_date}</span>
-                        </span>
+                                    {vaccines.map(v => <div key={v.doza} className="text">
+                             <strong    > {v.vaccine_title}: </strong>  {v.vaccine_name}, {v.vaccination_date}
+                        </div>
                                     )}
                                 </Typography>
                                 </div>
@@ -124,14 +124,15 @@ const PersonCard = () => {
                                 </a>
                                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
                                        serialId={serialId}/>
-                                <div> { analisis?
                                     <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
                                         <NavLink to="/result" style={{textDecoration: 'none'}}>
                                         <a className="ant-btn btn-primary">
                                             Получить результаты ПЦР
                                         </a>
                                         </NavLink>
-                                    </div>: null }
+                                </div>
+                                <div className='link'>
+                                <a style={{color: '#007d82', textDecoration: 'none'}} href='https://vc.emed.gov.kg' target="_blank" > <span > Подробнее о вакцинации </span> </a>
                                 </div>
                             </CardContent></div>} </div>}
             </div>}

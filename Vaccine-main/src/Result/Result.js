@@ -19,7 +19,8 @@ const Result = () => {
             })
     }, [])
     return <div className='table'>
-        <TableContainer component={Paper}>
+        {!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
+        </p> : <TableContainer component={Paper}>
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -43,7 +44,7 @@ const Result = () => {
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </TableContainer>}
        </div>
 }
 
