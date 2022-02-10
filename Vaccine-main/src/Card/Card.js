@@ -3,11 +3,11 @@ import axios from 'axios'
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import QRCode from "qrcode.react";
-import './App.css';
-import Modal from './Modal';
+import '../App.css';
+import Modal from '../Modal/Modal'
 import {NavLink, useSearchParams} from 'react-router-dom';
-import Preloader from './Preloader';
-import logo from './img/logo.jpg'
+import Preloader from '../Preloader/Preloader';
+import logo from '../img/logo.jpg'
 import './Card.css'
 
 const PersonCard = () => {
@@ -85,7 +85,7 @@ const PersonCard = () => {
                         <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
                             Рекомендуем получить вакцину в прививочном пункте.
                             Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
-                           <div> <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </div> </div> : <div>
+                           <span> <a href="https://vc.emed.gov.kg"> https://vc.emed.gov.kg </a> </span> </div> : <div>
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     <span> {fio} </span>
@@ -106,7 +106,7 @@ const PersonCard = () => {
                                     <QRCode
                                         onClick={() => setActive(false)}
                                         value={qrLink}
-                                        style={{marginRight: 10, marginBottom: 20, width: 200, height: 200}}
+                                        style={{width: 200, height: 200}}
                                         bgColor={"#ffffff"}
                                         fgColor={"#007d82"}
                                         imageSettings={{
@@ -125,13 +125,13 @@ const PersonCard = () => {
                                 <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
                                        serialId={serialId}/>
                                 <div> { analisis?
-                                <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
-                                    <NavLink to="/result" style={{textDecoration: 'none'}}>
-                                    <a className="ant-btn btn-primary">
-                                        Получить результаты ПЦР
-                                    </a>
-                                    </NavLink>
-                                </div>: null }
+                                    <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
+                                        <NavLink to="/result" style={{textDecoration: 'none'}}>
+                                        <a className="ant-btn btn-primary">
+                                            Получить результаты ПЦР
+                                        </a>
+                                        </NavLink>
+                                    </div>: null }
                                 </div>
                             </CardContent></div>} </div>}
             </div>}

@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './EngCertificate.css'
 import axios from "axios";
+import InputMask from "react-input-mask";
+import './libs/fontawesome/all.min.css';
 
 const EngCertificate = () => {
     const [passNumber, setPassNumber] = useState('')
@@ -11,6 +13,9 @@ const EngCertificate = () => {
     const [str, setStr] = useState('')
     const [isFetching, setIsFetching] = useState(false)
     const search = localStorage.getItem('phone')
+    const [isActive, setIsActive] = useState(false);
+    const options = ['AC', 'AN'];
+    const [option, setOption] = useState('')
 
     useEffect(() => {
         axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
@@ -41,23 +46,56 @@ const EngCertificate = () => {
         setStr(newString)
         setNum(newNumber)
     }
-    return <div style={{marginTop: '30%', maxWidth: 450}}>
+    return <div className="mainBlock">
         {isFetching ? <p> Загрузка ... </p> :
             <div>
                 <h1 className="text"> Укажите паспортные данные </h1>
                 <p style={{fontSize: 13, marginTop: 50}} className="text"> Для получения сертификата на английском языке введите данные с
-                    загранпаспорта</p>
-                <div className='main-input'>
+                    загранпаспорта
+                </p>
+                <div className='input-content'> 
+                    <div className='dropdown-menu'>
+                        <div className='dropdown-btn' onClick={(e) => setIsActive(!isActive)}>
+                            {option ? options.find(o => o == option) : '№'}
+                            <i className={`fa fa-chevron-up fas ${isActive && 'opened'}`}></i>
+                        </div>
+                        {isActive && (
+                            <div className='dropdown-content'>
+                                {options.map((o) => (
+                                    <div
+                                        onClick={(e) => {
+                                            setOption(o);
+                                            setIsActive(false);
+                                        }}
+                                        className='dropdown-items'
+                                    >
+                                        {o}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <InputMask
+                        className='ant-input ant-input-number'
+                        value={passNumber}
+                        onChange={e => setPassNumber(option + e.target.value)}
+                        mask="9999999"
+                        maskChar="x"
+                        placeholder='xxxxxxx'
+                    />
+                    <label for='text' className='label card-label'>Номер паспорта</label>
+                </div>
+                {/* <div className='main-input'>
                     <input type='text' className='main-input-content' placeholder='Номер загранпаспорта' onChange={(e) => setPassNumber(e.target.value)}/>
                 </div>
                 <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
-                    пробелов</p>
+                    пробелов</p> */}
                     <div>
                         <a onClick={onClickSend} style={{textDecoration: 'none'}}
                          href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
                           target="_blank"
                            download>
-                            <button  data-title="Введите номер загранпаспорта" className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </button>
+                            <a className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </a>
                         </a>
                     </div>
                </div>}

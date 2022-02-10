@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .modal {
+    width: 250px;
     height: 0;
     visibility: hidden;
     background-color: #fff;
@@ -15,6 +16,7 @@
     white-space: normal;
     overflow: hidden;
     line-height: 1.43;
+    margin-left: 20px;
 }
 
 .modal.active {

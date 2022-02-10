@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .main-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 350px;
     min-width: 300px;
     margin: 0 auto;
@@ -36,7 +39,7 @@
     padding: 0 32px;
     letter-spacing: 0.1px;
     margin-top: 50px;
-    width: 170px;
+    width: 190px;
     outline: none;
 }
 

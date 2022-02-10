@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.mainBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% auto 0 auto;
+    max-width: 350px;
+    min-width: 300px;
+}
+
+.modul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modul-inner {
+    position: relative;
+    padding: 15px;
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+}
+
+.text {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-input {
+    border-bottom: 1px solid #cfd1d1;
+    cursor: pointer;
+}
+
+.main-input:hover {
+    border-color: #007480;
+    transition: 0.3s;
+}
+
+.main-input-content {
+    width: 250px;
+    color: #1b1d1d;
+    font-size: 15px;
+    border: none;
+    padding: 10px 10px 10px 5px;
+}
+
+::-webkit-input-placeholder {
+    color:    #c5c4c3;
+}
+
+.main-input-content:focus {
+    outline: none;
+    border-color: #007480;
+    box-shadow: unset;
+}
+
+.ant-btn {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    background-color: #e9f4f5;
+    border-color: #e9f4f5;
+    border-radius: 12px;
+    color: #007480;
+    display: inline-flex;
+    font-size: 10px;
+    height: 40px;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 0 26px;
+    letter-spacing: 0.1px;
+    margin-top: 10px;
+    width: 190px;
+}
+
+.ant-btn:hover {
+    text-align: center;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    white-space: nowrap;
+    touch-action: manipulation;
+    background: #dfeef0;
+    border-color: #d4d6d6;
+}
+
+.ant-btn, .ant-btn:active, .ant-btn:focus {
+    outline: 0;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+    color: #1b1d1d;
+}
+
+.btn-primary {
+    color: #1b1d1d;
+    background-color: #ffcc00;
+}
+
+.btn-primary:hover {
+    background-color: #f5c400;
+}
+
+.btn-primary:disabled {
+    cursor: not-allowed;
+    position: relative;
+    color: #656f70;
+    background-color: #ffe57f;
+    border-color: #ffe57f;
+}
+
+.input-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+
+.ant-input {
+    margin-left: 80px;
+    width: 180px;
+    color: #1b1d1d;
+    font-size: 14px;
+    border: none;
+    padding: 10px 10px 10px 5px;
+    border-bottom: 1px solid #cfd1d1;
+}
+
+.ant-input:hover {
+    border-color: #007480;
+    transition: 0.3s;
+}
+
+.label {
+    position: absolute;
+    margin-bottom: 45px;
+    margin-right: 110px;
+    color: #656f70;
+    font-size: 10px;
+    width: 300px;
+    pointer-events: none;
+}
+
+.ant-input:focus + .label {
+    color: #007480;
+}
+
+
+.ant-input:focus {
+    outline: none;
+    border-color: #007480;
+}
+
+.dropdown-menu {
+    margin-left: 40px;
+    width: 70px;
+    user-select: none;
+    position: absolute;
+    left: 8px;
+    bottom: 0;
+}
+
+.dropdown-btn {
+    padding: 10px 5px 10px 10px;
+    background: #fff;
+    font-weight: normal;
+    border: none;
+    color: #1b1d1d;
+    border-bottom: 1px solid #cfd1d1;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.dropdown-btn:hover {
+    border-color: #007480;
+}
+
+
+.fas {
+    font-size: 12px;
+    color: #91A5BE;
+    transition: all .2s ease-in-out;
+}
+
+
+.fas.opened {
+    transform: rotate(180deg);
+}
+
+.dropdown-content { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #cfd1d1;
+    font-weight: 500;
+    color: #333;
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.dropdown-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dropdown-items:focus {
+    outline: none;
+    background-color: #e9f4f5;
+}
+
+.dropdown-items:hover {
+    background: #f4f4f4;
+}
+
