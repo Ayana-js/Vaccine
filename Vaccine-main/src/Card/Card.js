@@ -104,6 +104,7 @@ const PersonCard = () => {
                                 </div>
                                 <div>
                                     <QRCode
+
                                         onClick={() => setActive(false)}
                                         value={qrLink}
                                         style={{width: 200, height: 200}}
