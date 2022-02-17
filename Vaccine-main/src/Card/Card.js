@@ -104,7 +104,8 @@ const PersonCard = () => {
                                 </div>
                                 <div>
                                     <QRCode
-                                        onClick={() => setActive(false)}
+                                        // onClick={() => setActive(false)}
+                                        id="qr-gen"
                                         value={qrLink}
                                         style={{width: 200, height: 200}}
                                         bgColor={"#ffffff"}
@@ -115,7 +116,7 @@ const PersonCard = () => {
                                             y: null,
                                             height: 30,
                                             width: 30,
-                                            excavate: true,
+                                            padding: 10
                                         }}
                                     />
                                 </div>
