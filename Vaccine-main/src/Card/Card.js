@@ -24,13 +24,12 @@ const PersonCard = () => {
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
-    const [show, setShow] = useState(false)
+    // const [show, setShow] = useState(false)
     const search = searchParams.get('phone')
     const [analisis, setAnalisis] = useState([])
 
     useEffect(() => {
         setIsFetching(true)
-        setShow(true)
     }, [])
 
 
@@ -67,25 +66,34 @@ const PersonCard = () => {
     }, [])
     localStorage.setItem('phone', search)
 
-    useEffect(() => {
-        if (show) {
-            setTimeout(() => {
-                setIsFetching(false)
-                setShow(false)
-            }, 1500)
-        }
-    }, [show]);
+    // useEffect(() => {
+    //     if (show) {
+    //         setTimeout(() => {
+    //             setIsFetching(false)
+    //             setShow(false)
+    //         }, 100)
+    //     }
+    // }, [show])
+
+
+    if (propusk === undefined) {
+        <div className='main-block'>
+            <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
+                Рекомендуем получить вакцину в прививочном пункте.
+                Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
+                <span> <a href="https://vc.emed.gov.kg" target="_blank"> https://vc.emed.gov.kg </a> </span> </div>
+        </div>
+    }
+
+    if (err) {
+        <div>
+            <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют </p>
+        </div>
+    }
 
     return <div>
-        {isFetching || show ? <Preloader/> :
+        {isFetching ? <Preloader/> :
             <div className='main-block'>
-                {err ? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
-                </p> : <div>
-                    {propusk === undefined ?
-                        <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
-                            Рекомендуем получить вакцину в прививочном пункте.
-                            Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
-                           <span> <a href="https://vc.emed.gov.kg" target="_blank"> https://vc.emed.gov.kg </a> </span> </div> : <div>
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     <span> {fio} </span>
@@ -135,8 +143,7 @@ const PersonCard = () => {
                                 <div className='link'>
                                 <a style={{color: '#007d82', textDecoration: 'none'}} href='https://vc.emed.gov.kg' target="_blank" > <span > Подробнее о вакцинации </span> </a>
                                 </div>
-                            </CardContent></div>} </div>}
-            </div>}
+                            </CardContent></div>}
     </div>
 }
 

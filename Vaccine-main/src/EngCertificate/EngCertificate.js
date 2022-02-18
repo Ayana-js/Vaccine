@@ -85,16 +85,9 @@ const EngCertificate = () => {
                     />
                     <label for='text' className='label card-label'>Номер паспорта</label>
                 </div>
-                {/* <div className='main-input'>
-                    <input type='text' className='main-input-content' placeholder='Номер загранпаспорта' onChange={(e) => setPassNumber(e.target.value)}/>
-                </div>
-                <p style={{fontSize: 11, color: '#cccccc', marginBottom: 100}}> Введите заглавные буквы и номер без
-                    пробелов</p> */}
                     <div>
                         <a onClick={onClickSend} style={{textDecoration: 'none'}}
-                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
-                          target="_blank"
-                           download>
+                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}>
                             <a className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </a>
                         </a>
                     </div>

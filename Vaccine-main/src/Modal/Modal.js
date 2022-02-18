@@ -18,8 +18,8 @@ const Modal = ({ active, inn, numberId, serialId}) => {
             <div>
                 <p className="text">На каком языке вы бы хотели получить сертификат?</p>
                 <div className="linkTop">
-                        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} target="_blank"
-                        download className="links"  onClick={() =>  {setIsFetching(true)} } > Русский / Кыргызский </a>
+                        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
+                       className="links"  onClick={() =>  {setIsFetching(true)} } > Русский / Кыргызский </a>
                 </div>
                 <div>
                     <NavLink to="/cerEng" style={{textDecoration: "transparent"}}>
