@@ -45,6 +45,9 @@ const Result = () => {
                 </TableBody>
             </Table>
         </TableContainer>}
+        <p style={{fontSize: '13px', color: 'grey'}}>
+            Данные с государственных лабораторий и сети лабораторий Бoнецкого
+        </p>
        </div>
 }
 

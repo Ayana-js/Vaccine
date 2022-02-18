@@ -75,7 +75,6 @@ const PersonCard = () => {
     //     }
     // }, [show])
 
-
     if (propusk === undefined) {
         <div className='main-block'>
             <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
