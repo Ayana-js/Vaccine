@@ -5,6 +5,7 @@ import './Result.css'
 
 const Result = () => {
     const [result, setResult] = useState([])
+    const [positiveResult, setPositiveResult] = useState([])
     const search = localStorage.getItem('phone')
 
     useEffect(() => {
@@ -14,8 +15,10 @@ const Result = () => {
                 'Access-Control-Allow-Origin': '*'
             }).catch(err => console.log(err))
             .then(res => {
-                const result = res.data.propusk.positiveanalyzis
+                const result = res.data.propusk.analyzis
+                const positiveResult = res.data.positiveanalyzis
                 setResult(result)
+                setPositiveResult(positiveResult)
             })
     }, [])
     return <div className='table'>
@@ -32,14 +35,14 @@ const Result = () => {
                 <TableBody>
                     {result.map((result) => (
                         <TableRow
-                            key={result.analizName}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                {result.analizName}
+                                {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}
+                                 { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}
                             </TableCell>
-                            <TableCell align="right">{result.labResult}</TableCell>
-                            <TableCell align="right">{result.dateResult}</TableCell>
+                            <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>
+                            <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
