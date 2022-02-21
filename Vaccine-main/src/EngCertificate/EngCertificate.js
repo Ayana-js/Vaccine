@@ -83,7 +83,7 @@ const EngCertificate = () => {
                         maskChar="x"
                         placeholder='xxxxxxx'
                     />
-                    <label for='text' className='label card-label'>Номер паспорта</label>
+
                 </div>
                     <div>
                         <a onClick={onClickSend} style={{textDecoration: 'none'}}
