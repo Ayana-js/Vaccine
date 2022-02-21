@@ -24,12 +24,13 @@ const PersonCard = () => {
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
-    // const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false)
     const search = searchParams.get('phone')
     const [analisis, setAnalisis] = useState([])
 
     useEffect(() => {
         setIsFetching(true)
+        setShow(true)
     }, [])
 
 
@@ -66,17 +67,17 @@ const PersonCard = () => {
     }, [])
     localStorage.setItem('phone', search)
 
-    // useEffect(() => {
-    //     if (show) {
-    //         setTimeout(() => {
-    //             setIsFetching(false)
-    //             setShow(false)
-    //         }, 100)
-    //     }
-    // }, [show])
+    useEffect(() => {
+        if (show) {
+            setTimeout(() => {
+                setIsFetching(false)
+                setShow(false)
+            }, 1000)
+        }
+    }, [show])
 
     if (propusk === undefined) {
-        <div className='main-block'>
+        return <div className='main-block'>
             <div style={{marginTop: 250, marginBottom: 400}}><p className="text"> Запись отсутствует.
                 Рекомендуем получить вакцину в прививочном пункте.
                 Адреса ближайших прививочных пунктов и виды доступных вакцин можно просмотреть здесь </p>
@@ -85,13 +86,13 @@ const PersonCard = () => {
     }
 
     if (err) {
-        <div>
+        return <div>
             <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют </p>
         </div>
     }
 
     return <div>
-        {isFetching ? <Preloader/> :
+        {isFetching || show? <Preloader/> :
             <div className='main-block'>
                             <CardContent>
                                 <Typography variant="h6" component="div">
@@ -111,7 +112,6 @@ const PersonCard = () => {
                                 </div>
                                 <div>
                                     <QRCode
-                                        // onClick={() => setActive(false)}
                                         id="qr-gen"
                                         value={qrLink}
                                         style={{width: 200, height: 200}}
