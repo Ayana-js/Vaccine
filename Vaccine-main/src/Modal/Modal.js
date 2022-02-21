@@ -13,21 +13,20 @@ const Modal = ({ active, inn, numberId, serialId}) => {
             } , 5000)}
     }, [isFetching])
 
+    if (isFetching) {
+        return <p> Загрузка ... </p>
+    }
+
     return  <div className={active ? "modal active" : "modal"}>
-        {isFetching? <p> Загрузка ... </p>:
-            <div>
+
                 <p className="text">На каком языке вы бы хотели получить сертификат?</p>
                 <div className="linkTop">
                         <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
                        className="links"  onClick={() =>  {setIsFetching(true)} } > Русский / Кыргызский </a>
-                </div>
-                <div>
-                    <NavLink to="/cerEng" style={{textDecoration: "transparent"}}>
-                        <a  className="links" onClick={() => setIsActive(true)}> Английский / English </a>
+                    <NavLink to="/cerEng" style={{textDecoration: "white"}}>
+                        <p  className="links" onClick={() => setIsActive(true)}> Английский / English </p>
                     </NavLink>   
                 </div>
-            </div> 
-        }
     </div>
 }
 
