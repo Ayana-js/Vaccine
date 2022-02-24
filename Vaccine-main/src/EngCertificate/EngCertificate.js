@@ -87,7 +87,8 @@ const EngCertificate = () => {
                 </div>
                     <div>
                         <a onClick={onClickSend} style={{textDecoration: 'none'}}
-                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}>
+                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
+                         download>
                             <a className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </a>
                         </a>
                     </div>

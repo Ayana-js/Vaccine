@@ -21,7 +21,7 @@
 
 .modal.active {
     visibility: visible;
-    padding: 16px;
+    padding-bottom: 16px;
     height: 110px;
 }
 

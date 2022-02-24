@@ -52,8 +52,6 @@
     user-select: none;
     white-space: nowrap;
     touch-action: manipulation;
-    background: #dfeef0;
-    border-color: #d4d6d6;
 }
 
 .btn-primary {
