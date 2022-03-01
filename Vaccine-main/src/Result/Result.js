@@ -6,24 +6,40 @@ import './Result.css'
 const Result = () => {
     const [result, setResult] = useState([])
     const [positiveResult, setPositiveResult] = useState([])
+    const [data, setData] = useState({})
+    const [isFetching, setIsFetching] = useState(false)
     const search = localStorage.getItem('phone')
 
     useEffect(() => {
-        axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
-            {
-                mode: 'no-cors',
-                'Access-Control-Allow-Origin': '*'
-            }).catch(err => console.log(err))
-            .then(res => {
-                const result = res.data.propusk.analyzis
-                const positiveResult = res.data.positiveanalyzis
-                setResult(result)
-                setPositiveResult(positiveResult)
-            })
     }, [])
+    axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
+        {
+            mode: 'no-cors',
+            'Access-Control-Allow-Origin': '*'
+        }).catch(err => console.log(err))
+        .then(res => {
+            const data = res.data.passport
+            const result = res.data.propusk.analyzis
+            const positiveResult = res.data.positiveanalyzis
+            setData(data)
+            setResult(result)
+            setPositiveResult(positiveResult)
+        })
+    useEffect(() => {
+        if (isFetching) {
+            setTimeout(() => {
+                setIsFetching(false)
+            } , 5000)}
+    }, [isFetching])
+
+    if (isFetching) {
+        return <p> Загрузка ... </p>
+    }
     return <div className='table'>
         {!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
         </p> : <TableContainer component={Paper}>
+            <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`} style={{textDecoration: "none"}}
+               onClick={() =>  {setIsFetching(true)}} download >
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -47,6 +63,7 @@ const Result = () => {
                     ))}
                 </TableBody>
             </Table>
+            </a>
         </TableContainer>}
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого

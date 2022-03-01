@@ -12,21 +12,14 @@ import './Card.css'
 
 const PersonCard = () => {
     const [result, setResult] = useState([])
-    const [inn, setInn] = useState('')
-    const [qrLink, setQrLink] = useState('')
-    const [fio, setFio] = useState('')
-    const [vaccines, setVaccines] = useState([])
+    const [passport, setPassport] = useState()
     const [active, setActive] = useState(false)
-    const [photo, setPhoto] = useState([])
-    const [numberId, setNumberId] = useState('')
-    const [serialId, setSerialId] = useState('')
     const [searchParams] = useSearchParams();
     const [isFetching, setIsFetching] = useState(false)
     const [propusk, setPropusk] = useState()
     const [err, setErr] = useState()
     const [show, setShow] = useState(false)
     const search = searchParams.get('phone')
-    const [analisis, setAnalisis] = useState([])
 
     useEffect(() => {
         setIsFetching(true)
@@ -44,25 +37,11 @@ const PersonCard = () => {
                 setIsFetching(false)
                 const result = res.data.propusk.result
                 const propusk = res.data.propusk
-                const inn = res.data.passport.inn
-                const numberId = res.data.passport.numberId
-                const serialId = res.data.passport.serialId
-                const qrLink = res.data.propusk.qrLink
-                const fio = res.data.propusk.fio
-                const vaccines = res.data.propusk.vaccines
-                const photo = res.data.propusk.photo
-                const analisis = res.data.propusk.positiveanalyzis
+                const passport = res.data.passport
 
                 setPropusk(propusk)
                 setResult(result)
-                setQrLink(qrLink)
-                setFio(fio)
-                setVaccines(vaccines)
-                setPhoto(photo)
-                setInn(inn)
-                setNumberId(numberId)
-                setSerialId(serialId)
-                setAnalisis(analisis)
+                setPassport(passport)
             })
     }, [])
     localStorage.setItem('phone', search)
@@ -96,15 +75,15 @@ const PersonCard = () => {
             <div className='main-block'>
                             <CardContent>
                                 <Typography variant="h6" component="div">
-                                    <span> {fio} </span>
+                                    <span> {propusk.fio} </span>
                                 </Typography>
-                                <a href={`data:image/jpeg;base64,${photo}`} download>
-                                    <img src={`data:image/jpeg;base64,${photo}`} style={{width: 110, height: 150}}
+                                <a href={`data:image/jpeg;base64,${propusk.photo}`} download>
+                                    <img src={`data:image/jpeg;base64,${propusk.photo}`} style={{width: 110, height: 150}}
                                          onClick={() => setActive(false)}/>
                                 </a>
                                 <div className="text-dec">
                                 <Typography onClick={() => setActive(false)} variant="body2" color="text.secondary">
-                                    {vaccines.map(v => <div key={v.doza} className="text">
+                                    {propusk.vaccines.map(v => <div key={v.doza} className="text">
                              <strong    > {v.vaccine_title}: </strong>  {v.vaccine_name}, {v.vaccination_date}
                         </div>
                                     )}
@@ -113,7 +92,7 @@ const PersonCard = () => {
                                 <div>
                                     <QRCode
                                         id="qr-gen"
-                                        value={qrLink}
+                                        value={propusk.qrLink}
                                         style={{width: 200, height: 200}}
                                         bgColor={"#ffffff"}
                                         fgColor={"#007d82"}
@@ -130,8 +109,8 @@ const PersonCard = () => {
                                 <a className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >
                                   Получить сертификат
                                 </a>
-                                <Modal active={active} setActive={setActive} numberId={numberId} inn={inn}
-                                       serialId={serialId}/>
+                                <Modal active={active} setActive={passport.setActive} numberId={passport.numberId} inn={passport.inn}
+                                       serialId={password.serialId}/>
                                     <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
                                         <NavLink to="/result" style={{textDecoration: 'none'}}>
                                         <a className="ant-btn btn-primary">
