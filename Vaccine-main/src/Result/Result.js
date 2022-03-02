@@ -63,8 +63,8 @@ const Result = () => {
             </Table>
         </TableContainer>}
         <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
-           className="ant-btn btn-primary" download
-           onClick={() =>  {setIsFetching(true)}}>
+           className="ant-btn btn-primary"
+           onClick={() => {setIsFetching(true)}} download>
             Скачать
         </a>
         <p style={{fontSize: '13px', color: 'grey'}}>
