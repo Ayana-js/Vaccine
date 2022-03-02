@@ -45,6 +45,7 @@ const PersonCard = () => {
             })
     }, [])
     localStorage.setItem('phone', search)
+    console.log(passport)
 
     useEffect(() => {
         if (show) {
@@ -110,7 +111,7 @@ const PersonCard = () => {
                                   Получить сертификат
                                 </a>
                                 <Modal active={active} setActive={passport.setActive} numberId={passport.numberId} inn={passport.inn}
-                                       serialId={password.serialId}/>
+                                       serialId={passport.serialId}/>
                                     <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>
                                         <NavLink to="/result" style={{textDecoration: 'none'}}>
                                         <a className="ant-btn btn-primary">

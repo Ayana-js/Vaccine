@@ -43,9 +43,9 @@ const Result = () => {
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Анализ</TableCell>
-                        <TableCell align="right">Результаты</TableCell>
-                        <TableCell align="right">Дата</TableCell>
+                        <TableCell> <strong> Анализ </strong> </TableCell>
+                        <TableCell align="right"> <strong> Результаты </strong> </TableCell>
+                        <TableCell align="right"> <strong> Дата </strong> </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
