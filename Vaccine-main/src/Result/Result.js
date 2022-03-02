@@ -36,32 +36,32 @@ const Result = () => {
         return <p> Загрузка ... </p>
     }
     return <div className='table'>
-        {!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
-        </p> : <TableContainer component={Paper}>
-            <Table aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell> <strong> Анализ </strong> </TableCell>
-                        <TableCell align="right"> <strong> Результаты </strong> </TableCell>
-                        <TableCell align="right"> <strong> Дата </strong> </TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {result.map((result) => (
-                        <TableRow
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}
-                                 { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}
-                            </TableCell>
-                            <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>
-                            <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>}
+        {/*{!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют*/}
+        {/*</p> : <TableContainer component={Paper}>*/}
+        {/*    <Table aria-label="simple table">*/}
+        {/*        <TableHead>*/}
+        {/*            <TableRow>*/}
+        {/*                <TableCell> <strong> Анализ </strong> </TableCell>*/}
+        {/*                <TableCell align="right"> <strong> Результаты </strong> </TableCell>*/}
+        {/*                <TableCell align="right"> <strong> Дата </strong> </TableCell>*/}
+        {/*            </TableRow>*/}
+        {/*        </TableHead>*/}
+        {/*        <TableBody>*/}
+        {/*            {result.map((result) => (*/}
+        {/*                <TableRow*/}
+        {/*                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}*/}
+        {/*                >*/}
+        {/*                    <TableCell component="th" scope="row">*/}
+        {/*                        {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}*/}
+        {/*                         { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}*/}
+        {/*                    </TableCell>*/}
+        {/*                    <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>*/}
+        {/*                    <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>*/}
+        {/*                </TableRow>*/}
+        {/*            ))}*/}
+        {/*        </TableBody>*/}
+        {/*    </Table>*/}
+        {/*</TableContainer>}*/}
         <a style={{textDecoration: 'none'}}
            href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
            download>
