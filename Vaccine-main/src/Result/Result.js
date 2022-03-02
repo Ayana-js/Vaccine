@@ -39,7 +39,7 @@ const Result = () => {
         {!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
         </p> : <TableContainer component={Paper}>
             <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`} style={{textDecoration: "none"}}
-               onClick={() =>  {setIsFetching(true)}} download >
+               onClick={() =>  {setIsFetching(true)}} >
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
