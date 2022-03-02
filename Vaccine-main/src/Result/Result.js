@@ -20,7 +20,6 @@ const Result = () => {
             'Access-Control-Allow-Origin': '*'
         }).catch(err => console.log(err))
         .then(res => {
-            const passport = res.data.passport
             const result = res.data.propusk.analyzis
             const positiveResult = res.data.positiveanalyzis
             const inn = res.data.passport.inn
@@ -74,6 +73,11 @@ const Result = () => {
            href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
            download>
             <a className='ant-btn btn-primary' onClick={() => setIsFetching(true)} > Скачать  </a>
+        </a>
+        <a onClick={onClickSend} style={{textDecoration: 'none'}}
+           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
+           download>
+            <a className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </a>
         </a>
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого
