@@ -62,10 +62,10 @@ const Result = () => {
                 </TableBody>
             </Table>
         </TableContainer>}
-        <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
-           className="ant-btn btn-primary"
-           onClick={() => {setIsFetching(true)}} download>
-            Скачать
+        <a style={{textDecoration: 'none'}}
+           href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
+           download>
+            <a className='ant-btn btn-primary' onClick={() => setIsFetching(true)} > Скачать  </a>
         </a>
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого
