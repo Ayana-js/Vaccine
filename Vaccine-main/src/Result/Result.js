@@ -65,6 +65,9 @@ const Result = () => {
             </Table>
             </a>
         </TableContainer>}
+        <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`} className="ant-btn btn-primary" >
+            Скачать
+        </a>
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого
         </p>
