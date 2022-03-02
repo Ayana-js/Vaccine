@@ -62,6 +62,8 @@ const Result = () => {
         {/*        </TableBody>*/}
         {/*    </Table>*/}
         {/*</TableContainer>}*/}
+        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
+           className="links"  onClick={() =>  {setIsFetching(true)} } download > Русский / Кыргызский </a>
         <a style={{textDecoration: 'none'}}
            href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
            download>
