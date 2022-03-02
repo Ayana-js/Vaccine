@@ -21,6 +21,7 @@ const Result = () => {
             const data = res.data.passport
             const result = res.data.propusk.analyzis
             const positiveResult = res.data.positiveanalyzis
+            const inn = res.data.passport.inn
             setData(data)
             setResult(result)
             setPositiveResult(positiveResult)
@@ -62,7 +63,7 @@ const Result = () => {
         {/*        </TableBody>*/}
         {/*    </Table>*/}
         {/*</TableContainer>}*/}
-        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
+        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
            className="links"  onClick={() =>  {setIsFetching(true)} } download > Русский / Кыргызский </a>
         <a style={{textDecoration: 'none'}}
            href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
