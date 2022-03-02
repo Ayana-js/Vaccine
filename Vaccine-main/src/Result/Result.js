@@ -4,10 +4,12 @@ import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow}
 import './Result.css'
 
 const Result = () => {
-    const [result, setResult] = useState([])
+    const [result, setResult] = useState()
     const [positiveResult, setPositiveResult] = useState([])
-    const [data, setData] = useState({})
     const [isFetching, setIsFetching] = useState(false)
+    const [inn, setInn] = useState()
+    const [serialId, setSerialId] = useState()
+    const [numberId, setNumberId] = useState()
     const search = localStorage.getItem('phone')
 
     useEffect(() => {
@@ -18,11 +20,16 @@ const Result = () => {
             'Access-Control-Allow-Origin': '*'
         }).catch(err => console.log(err))
         .then(res => {
-            const data = res.data.passport
+            const passport = res.data.passport
             const result = res.data.propusk.analyzis
             const positiveResult = res.data.positiveanalyzis
             const inn = res.data.passport.inn
-            setData(data)
+            const serialId = res.data.passport.serialId
+            const numberId = res.data.passport.numberId
+
+            setInn(inn)
+            setNumberId(numberId)
+            setSerialId(serialId)
             setResult(result)
             setPositiveResult(positiveResult)
         })
@@ -37,36 +44,34 @@ const Result = () => {
         return <p> Загрузка ... </p>
     }
     return <div className='table'>
-        {/*{!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют*/}
-        {/*</p> : <TableContainer component={Paper}>*/}
-        {/*    <Table aria-label="simple table">*/}
-        {/*        <TableHead>*/}
-        {/*            <TableRow>*/}
-        {/*                <TableCell> <strong> Анализ </strong> </TableCell>*/}
-        {/*                <TableCell align="right"> <strong> Результаты </strong> </TableCell>*/}
-        {/*                <TableCell align="right"> <strong> Дата </strong> </TableCell>*/}
-        {/*            </TableRow>*/}
-        {/*        </TableHead>*/}
-        {/*        <TableBody>*/}
-        {/*            {result.map((result) => (*/}
-        {/*                <TableRow*/}
-        {/*                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}*/}
-        {/*                >*/}
-        {/*                    <TableCell component="th" scope="row">*/}
-        {/*                        {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}*/}
-        {/*                         { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}*/}
-        {/*                    </TableCell>*/}
-        {/*                    <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>*/}
-        {/*                    <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>*/}
-        {/*                </TableRow>*/}
-        {/*            ))}*/}
-        {/*        </TableBody>*/}
-        {/*    </Table>*/}
-        {/*</TableContainer>}*/}
-        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
-           className="links"  onClick={() =>  {setIsFetching(true)} } download > Русский / Кыргызский </a>
+        {!result? <p style={{marginTop: 250, marginBottom: 400}}> Данные отсутствуют
+        </p> : <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell> <strong> Анализ </strong> </TableCell>
+                        <TableCell align="right"> <strong> Результаты </strong> </TableCell>
+                        <TableCell align="right"> <strong> Дата </strong> </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {result.map((result) => (
+                        <TableRow
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                            <TableCell component="th" scope="row">
+                                {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}
+                                 { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}
+                            </TableCell>
+                            <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>
+                            <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>}
         <a style={{textDecoration: 'none'}}
-           href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${data.inn}&seriaId=${data.serialId}&nomerId=${data.numberId}`}
+           href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
            download>
             <a className='ant-btn btn-primary' onClick={() => setIsFetching(true)} > Скачать  </a>
         </a>
