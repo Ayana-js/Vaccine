@@ -3,20 +3,20 @@ import { Route, Routes } from 'react-router-dom'
 import PersonCard from './Card/Card'
 import EngCertificate from './EngCertificate/EngCertificate';
 import Result from './Result/Result';
-import { useState } from 'react';
-
+import Moc from "./Moc";
 
 function App() {
-  const [selected, setSelected] = useState('');
   return (
     <div className='App'>
       <Routes>
       <Route path='/vaccine'
                   element={ <PersonCard /> }/>
       <Route path='/cerEng'
-                  element={ <EngCertificate selected={selected} setSelected={setSelected} /> }/>
+                  element={ <EngCertificate /> }/>
         <Route path={'/result'}
                    element={<Result /> }/>
+        <Route path={'/moc'}
+                    element={<Moc />}/>
       </Routes>
     </div>
   );

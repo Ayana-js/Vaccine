@@ -74,8 +74,6 @@ const Result = () => {
            download>
             <a className='ant-btn btn-primary' onClick={() => setIsFetching(true)} > Скачать  </a>
         </a>
-        <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
-           className="links"  onClick={() =>  {setIsFetching(true)} } download > Русский / Кыргызский </a>
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого
         </p>
@@ -83,3 +81,4 @@ const Result = () => {
 }
 
 export default Result
+

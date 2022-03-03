@@ -120,6 +120,7 @@ const PersonCard = () => {
                                 </div>
                                 <div className='link'>
                                 <a style={{color: '#007d82', textDecoration: 'none'}} href='https://vc.emed.gov.kg' target="_blank" > <span > Подробнее о вакцинации </span> </a>
+                                <div> <NavLink to="/moc"> Hey </NavLink> </div>
                                 </div>
                             </CardContent></div>}
     </div>
