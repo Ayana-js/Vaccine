@@ -60,7 +60,7 @@ const Result = () => {
                         >
                             <TableCell component="th" scope="row">
                                 {result && result.analizName.length > 20? result.analizName.slice(0, -138): result.analizName}
-                                 { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}
+                                { positiveResult && positiveResult.length > 20? positiveResult.analizName.slice(0, -138): null}
                             </TableCell>
                             <TableCell align="right">{result.labResult? 'Отрицательный': null} {positiveResult? 'Положитьельный': null}</TableCell>
                             <TableCell align="right">{result? result.dateResult.slice(0, -9): null} </TableCell>
@@ -77,8 +77,7 @@ const Result = () => {
         <p style={{fontSize: '13px', color: 'grey'}}>
             Данные с государственных лабораторий и сети лабораторий Бoнецкого
         </p>
-       </div>
+    </div>
 }
 
 export default Result
-
