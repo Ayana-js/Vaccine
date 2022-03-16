@@ -1,12 +1,25 @@
 import React from "react";
-import img from '../img/img.jpg'
+import minzdrav from '../img/minzdrav.jpg'
+import logo from '../img/logo-mbank.png'
 import './Preloader.css'
+import {Card} from "@mui/material";
 
 const Preloader = () => {
-    return <div className='wrap'> <img src={img} style={{width: 200, height: 200, paddingTop: 50 }} />
-                  <div className="loader">Загружается ...</div>
-                 <p className="text"> Реализовано совместно с Министерством здравоохранения Кыргызской Республики </p>
-                 </div>
+    return (
+        <div className="preload">
+            <div className="preload__content">
+                <div className="logo">
+                    <img src={minzdrav} alt=""/>
+                    <span>+</span>
+                    <img src={logo} alt=""/>
+                </div>
+                <div className="text">
+                    <p>Разработано совместно <br/> <strong>с Министерством здравоохранения Кыргызской
+                        Республики</strong></p>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Preloader

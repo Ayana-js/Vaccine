@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+.activeBlock {
+    margin-top: 15px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+    border-radius: 8px;
+}
+
+.blocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.activeBlock {
+    visibility: visible;
+}
+
+.certBlock {
+    visibility: hidden;
+    overflow: hidden;
+    padding: 5%;
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+}
+
+.certText {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.ant-btn {
+    align-items: center;
+    background-color: #e9f4f5;
+    border-color: #e9f4f5;
+    border-radius: 12px;
+    color: #007480;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 0 32px;
+    letter-spacing: 0.1px;
+    margin-top: 50px;
+    width: 300px;
+    text-decoration: none;
+}
+
+.ant-btn:hover {
+    text-align: center;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    white-space: nowrap;
+    touch-action: manipulation;
+    background: #dfeef0;
+    border-color: #d4d6d6;
+}
+
+.ant-btn, .ant-btn:active, .ant-btn:focus {
+    outline: 0;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+    color: #1b1d1d;
+}
+
+
+.btn-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #1b1d1d;
+    width: 160px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: 8px;
+    background: #FEDD2C;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #f5c400;
+}
+
+.btn-download span {
+    background: url('../img/download.png') no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}

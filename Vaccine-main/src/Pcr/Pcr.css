@@ -1,0 +1,135 @@
+.activePcr {
+    visibility: visible;
+}
+
+.pcr {
+    visibility: hidden;
+}
+
+.wrapperPcr {
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+}
+.menu-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-trigger {
+    margin-top: 15px;
+    width: 330px;
+    height: 65px;
+    background: #ffffff;
+    border-radius: 8px 8px 0px 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+    /*border: 1px solid #ccc;*/
+    transition: box-shadow 0.4s ease;
+}
+
+.menu_trigger_data {
+    font-weight: bold;
+}
+
+.menu__left__icon {
+    background: url('../img/Vector.png') no-repeat;
+    width: 25px;
+    height: 25px;
+    margin: 20px 15px;
+}
+
+.menu__right__icon {
+    text-align: center;
+    line-height: 36px;
+    width: 32px;
+    height: 32px;
+    background: #F2F5F5;
+    color: #007480;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+.menu__right__icon:hover {
+    background: #dfeef0;
+    transition: all 0.3s
+}
+
+.FaChevronDown {
+    font-size: 14px;
+    transition: all .2s ease-in-out;
+}
+
+.menu .FaChevronDown {
+    transform: rotate(180deg);
+}
+
+.menu {
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    top: 67px;
+    /*width: 360px;*/
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+    /*border: 1px solid #ccc;*/
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu__items {
+    text-decoration: none;
+    color: #333333;
+    padding: 10px 12px;
+    display: block;
+}
+
+.menu__items span {
+    color: #656F70;
+    font-size: 14px;
+}
+
+.menu__items p {
+    margin-top: 5px;
+}
+
+.result {
+    color: #0C955D;
+}
+
+.btn__download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 306px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    background: #FEDD2C;
+    color: #13161B;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn__download:hover {
+    background-color: #f5c400;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.donwload__icon {
+    background: url('../img/download.png') no-repeat;
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}

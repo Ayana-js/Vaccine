@@ -1,0 +1,56 @@
+h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.main__slider {
+    font-family: 'Roboto';
+    width: 330px;
+}
+
+.carousel {
+    color: #fff;
+    margin: 10px;
+    padding: 16px 12px 0 12px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
+    border-radius: 8px;
+    width: 120px;
+}
+
+.items__title {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    color: #007480;
+}
+
+.items__title span {
+    margin-left: auto;
+    font-size: 18px;
+}
+
+.items__text {
+    font-size: 14px;
+    color: #000;
+    padding-bottom: 12px;
+}
+
+.items__text span {
+    color: #656F70;
+}
+
+.items__text p {
+    margin-top: 5px;
+}

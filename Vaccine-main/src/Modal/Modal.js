@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Modal.css"
 
 const Modal = ({ active, inn, numberId, serialId}) => {
+    console.log(active)
     const [isActive, setIsActive] = useState(false)
     const [isFetching, setIsFetching] = useState(false)
 
@@ -18,7 +19,6 @@ const Modal = ({ active, inn, numberId, serialId}) => {
     }
 
     return  <div className={active ? "modal active" : "modal"}>
-
                 <p className="text">На каком языке вы бы хотели получить сертификат?</p>
                 <div className="linkTop">
                         <a href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}

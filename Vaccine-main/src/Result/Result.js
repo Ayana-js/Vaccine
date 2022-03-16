@@ -38,7 +38,6 @@ const Result = () => {
                 setIsFetching(false)
             } , 5000)}
     }, [isFetching])
-
     if (isFetching) {
         return <p> Загрузка ... </p>
     }
