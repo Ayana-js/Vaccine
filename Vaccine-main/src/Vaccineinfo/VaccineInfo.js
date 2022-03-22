@@ -30,18 +30,6 @@ const VaccineInfo = ({propusk}) => {
                                 </div>
                             </div>
                         </div> )}
-                        {/*<div className="slider__items">*/}
-                        {/*    <div className="carousel">*/}
-                        {/*        <div className="items__title">*/}
-                        {/*            <h3>Vero Cell</h3>*/}
-                        {/*            <span><RiSyringeLine/></span>*/}
-                        {/*        </div>*/}
-                        {/*        <div className="items__text">*/}
-                        {/*            <span>ldskfjs</span>*/}
-                        {/*            <p>654654</p>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </Slider>
                 </div>
     );

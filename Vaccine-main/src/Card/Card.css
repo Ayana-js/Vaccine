@@ -18,12 +18,10 @@
 }
 
 .firstBlock {
-    /*box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);*/
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin-left: 35px;
 }
 
 .userPhoto {
@@ -41,6 +39,30 @@
     line-height: 24px;
 }
 
+.expired_block {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    background-color: #FEF1F1;
+    text-align: start;
+}
+
+.expired_text {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.info_icon {
+    background: url('../img/info-circle.png') no-repeat;
+    width: 20px;
+    height: 20px;
+    /*padding-bottom: 5px;*/
+    padding-left: 10px;
+}
+
 .qrBlock {
     display: flex;
     justify-content: center;
@@ -48,7 +70,6 @@
     flex-direction: column;
     padding: 20px 0 40px 0;
     margin-bottom: 20px;
-
     box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
 }
 

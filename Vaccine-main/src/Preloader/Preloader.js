@@ -7,6 +7,7 @@ import {Card} from "@mui/material";
 const Preloader = () => {
     return (
         <div className="preload">
+            <div className="loader"></div>
             <div className="preload__content">
                 <div className="logo">
                     <img src={minzdrav} alt=""/>

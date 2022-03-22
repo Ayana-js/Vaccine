@@ -3,6 +3,7 @@ import './EngCertificate.css'
 import axios from "axios";
 import InputMask from "react-input-mask";
 import './libs/fontawesome/all.min.css';
+import Preloader from "../Preloader/Preloader";
 
 const EngCertificate = () => {
     const [passNumber, setPassNumber] = useState('')
@@ -14,7 +15,6 @@ const EngCertificate = () => {
     const [isFetching, setIsFetching] = useState(false)
     const search = localStorage.getItem('phone')
     const [isActive, setIsActive] = useState(false);
-    const options = ['AC', 'AN'];
     const [option, setOption] = useState('')
 
     useEffect(() => {
@@ -45,53 +45,43 @@ const EngCertificate = () => {
         let newNumber = passNumber.toString().replace(/\D/g, '')
         setStr(newString)
         setNum(newNumber)
+        console.log(str)
+        console.log(num)
     }
     return <div className="mainBlock">
-        {isFetching ? <p> Загрузка ... </p> :
+        {isFetching ? <Preloader /> :
             <div>
                 <h1 className="text"> Укажите паспортные данные </h1>
-                <p style={{fontSize: 13, marginTop: 50}} className="text"> Для получения сертификата на английском языке введите данные с
+                <p className="text__description"> Для получения сертификата на английском <br/> языке введите данные с
                     загранпаспорта
                 </p>
-                <div className='input-content'> 
-                    <div className='dropdown-menu'>
-                        <div className='dropdown-btn' onClick={(e) => setIsActive(!isActive)}>
-                            {option ? options.find(o => o == option) : '№'}
-                            <i className={`fa fa-chevron-up fas ${isActive && 'opened'}`}></i>
+                <div className="form__radio_group">
+                    <div className="form__content">
+                        <div className="form__radio_group-item">
+                            <input id="radio-1" type="radio" name="radio" value="1" onChange={() =>setOption('AC')}/>
+                            <label htmlFor="radio-1" onClick={() => setOption('AC')}>AC</label>
                         </div>
-                        {isActive && (
-                            <div className='dropdown-content'>
-                                {options.map((o) => (
-                                    <div
-                                        onClick={(e) => {
-                                            setOption(o);
-                                            setIsActive(false);
-                                        }}
-                                        className='dropdown-items'
-                                    >
-                                        {o}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        <div className="form__-radio_group-item">
+                            <input id="radio-2" type="radio" name="radio" value="2" onChange={() => setOption('AN')}/>
+                            <label htmlFor="radio-2" onClick={() => setOption('AN')} >AN</label>
+                        </div>
                     </div>
+                </div>
+                <div>
                     <InputMask
                         className='ant-input ant-input-number'
                         value={passNumber}
                         onChange={e => setPassNumber(option + e.target.value)}
                         mask="9999999"
                         maskChar="x"
-                        placeholder='xxxxxxx'
                     />
-
+                    {console.log(passNumber)}
                 </div>
-                    <div>
-                        <a onClick={onClickSend} style={{textDecoration: 'none'}}
-                         href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
-                         download>
-                            <a className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </a>
-                        </a>
-                    </div>
+                <a onClick={onClickSend} style={{textDecoration: 'none'}}
+                   href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}&passId=${str}&passNomer=${num}`}
+                   download>
+                    <span className='ant-btn btn-primary' disabled={!passNumber} onClick={() => setIsFetching(true)} > Получить сертификат  </span>
+                </a>
                </div>}
     </div>
 }

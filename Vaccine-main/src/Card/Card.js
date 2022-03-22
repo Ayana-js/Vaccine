@@ -15,6 +15,7 @@ import Error from "../Error/Error";
 import VaccineInfo from "../Vaccineinfo/VaccineInfo";
 
 const PersonCard = () => {
+    const [expired, setExpired] = useState()
     const [result, setResult] = useState()
     const [positiveResult, setPositiveResult] = useState([])
     const [passport, setPassport] = useState()
@@ -34,7 +35,7 @@ const PersonCard = () => {
 
 
     useEffect(() => {
-        axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
+        axios.get(`https://ibank2.cbk.kg/minzdrav-test/covid-pass?phone=` + search,
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
@@ -45,8 +46,9 @@ const PersonCard = () => {
                 const positiveResult = res.data.positiveanalyzis
                 const propusk = res.data.propusk
                 const passport = res.data.passport
-
+                const expired = res.data.propusk.expired
                 setPropusk(propusk)
+                setExpired(expired)
                 setResult(result)
                 setPassport(passport)
                 setPositiveResult(positiveResult)
@@ -63,19 +65,13 @@ const PersonCard = () => {
         }
     }, [show])
 
-    if (propusk === undefined) {
-        return <div className='main-block'>
-            <Error />
-        </div>
-    }
-
     if (err) {
         return <div>
            <Error />
         </div>
     }
     return <div>
-        {isFetching || show? <Preloader/> :
+        {isFetching || show || propusk === undefined? <Preloader/> :
             <div className='main-block'>
                             <CardContent>
                                 <div className='firstBlock container'>
@@ -84,8 +80,11 @@ const PersonCard = () => {
                                     <span className='fio'> {propusk.fio} </span>
                                 </div>
                                 <div className="text-dec">
-
                                 </div>
+                                {expired? <div className="expired_block container" >
+                                    <span className="info_icon"></span>
+                                    <p className="expired_text"> По истечении 6 месяцев минздрав <br/> рекомендует пройти повторную <br/> вакцинацию</p>
+                                </div> : null}
                                 <VaccineInfo propusk={propusk} />
                                 <div className='qrBlock container'>
                                     <span className='qrText'> Электронный пропуск </span>
@@ -106,7 +105,7 @@ const PersonCard = () => {
                                         <label htmlFor="radio-2">ПЦР-ТЕСТЫ</label>
                                     </div>
                                 </div>
-                                {active ? <Certificates />: <Pcr  result={result} positiveResult={positiveResult}/>}
+                                {active ? <Certificates inn={passport.inn} numberId={passport.numberId} serialId={passport.serialId}/>: <Pcr  result={result} positiveResult={positiveResult}/>}
                                 {/*<Certificates active={active}/>*/}
                                 {/*<a className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >*/}
                                 {/*  Получить сертификат*/}
