@@ -35,7 +35,7 @@ const PersonCard = () => {
 
 
     useEffect(() => {
-        axios.get(`https://ibank2.cbk.kg/minzdrav-test/covid-pass?phone=` + search,
+        axios.get(`http://10.10.90.117:7777/covid-pass?phone=` + search,
             {
                 mode: 'no-cors',
                 'Access-Control-Allow-Origin': '*'
