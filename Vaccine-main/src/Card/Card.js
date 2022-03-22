@@ -33,7 +33,6 @@ const PersonCard = () => {
         setShow(true)
     }, [])
 
-
     useEffect(() => {
         axios.get(`https://ibank2.cbk.kg/minzdrav/covid-pass?phone=` + search,
             {
