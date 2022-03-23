@@ -15,7 +15,9 @@ const Certificates = ({active, serialId, numberId, inn}) => {
     }, [isFetching]);
     return (
         <>
-        {isFetching ? <Preloader /> :
+        {isFetching ?
+            <div className="loader">  </div>
+            :
         <div className='activeBlock container'>
                 <div className='blocks'>
                     <p className='certText'> Русский </p>

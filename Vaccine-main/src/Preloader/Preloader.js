@@ -11,11 +11,11 @@ const Preloader = () => {
             <div className="preload__content">
                 <div className="logo">
                     <img src={minzdrav} alt=""/>
-                    <span>+</span>
+                    <div className="plus">+</div>
                     <img src={logo} alt=""/>
                 </div>
                 <div className="text">
-                    <p>Разработано совместно <br/> <strong>с Министерством здравоохранения Кыргызской
+                    <p className="loader-text">Разработано совместно <br/> <strong>с Министерством здравоохранения Кыргызской
                         Республики</strong></p>
                 </div>
             </div>

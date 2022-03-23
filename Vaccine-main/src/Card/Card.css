@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&display=swap');
 
-.container {
-    width: 330px;
-    margin: 0 auto;
-}
-
 .main-block {
     display: flex;
     justify-content: center;
@@ -43,7 +38,6 @@
     display: flex;
     border-radius: 10px;
     padding: 10px;
-    width: 300px;
     background-color: #FEF1F1;
     text-align: start;
 }

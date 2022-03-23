@@ -44,12 +44,11 @@
     height: 80px;
 }
 
-.logo span {
+.plus {
     font-size: 28px;
-    font-weight: bold;
 }
 
-.text p {
+.loader-text {
     font-family: 'Roboto';
     width: 330px;
     text-align: center;

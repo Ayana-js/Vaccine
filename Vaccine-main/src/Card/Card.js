@@ -100,27 +100,11 @@ const PersonCard = () => {
                                         <label htmlFor="radio-1" >СЕРТИФИКАТ</label>
                                     </div>
                                     <div className="form_radio_group-item" onClick={() => {setActive(false)}}>
-                                        <input id="radio-2" type="radio" name="radio" value="2"/>
+                                        <input id="radio-2" type="radio" name="radio" value="2" checked/>
                                         <label htmlFor="radio-2">ПЦР-ТЕСТЫ</label>
                                     </div>
                                 </div>
                                 {active ? <Certificates inn={passport.inn} numberId={passport.numberId} serialId={passport.serialId}/>: <Pcr  result={result} positiveResult={positiveResult}/>}
-                                {/*<Certificates active={active}/>*/}
-                                {/*<a className="ant-btn btn-primary" onClick={() => !active? setActive(true): setActive(false)} >*/}
-                                {/*  Получить сертификат*/}
-                                {/*</a>*/}
-                                {/*<Modal active={active} setActive={setActive} numberId={passport.numberId} inn={passport.inn}*/}
-                                {/*       serialId={passport.serialId}/>*/}
-                                {/*    <div onClick={() => setActive(false)} className={active? "button notActive" : "button"}>*/}
-                                {/*        <NavLink to="/result" style={{textDecoration: 'none'}}>*/}
-                                {/*        <a className="ant-btn btn-primary">*/}
-                                {/*            Получить результаты ПЦР*/}
-                                {/*        </a>*/}
-                                {/*        </NavLink>*/}
-                                {/*</div>*/}
-                                {/*<div className='link'>*/}
-                                {/*<a style={{color: '#007d82', textDecoration: 'none'}} href='https://vc.emed.gov.kg' target="_blank" > <span > Подробнее о вакцинации </span> </a>*/}
-                                {/*</div>*/}
                             </CardContent></div>}
     </div>
 }

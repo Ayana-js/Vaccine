@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .menu-container {
     position: relative;
@@ -117,3 +118,142 @@
     height: 20px;
     padding-right: 10px;
 }
+
+.main-half {
+    position: relative;
+}
+
+/* Acordeon styles */
+.tab {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgb(21 43 71 / 10%);
+    border-radius: 8px;
+    /*transition: all 0.3s ease-out;*/
+}
+
+.tab input {
+    position: absolute;
+    z-index: -1;
+    /*transition: all 0.3s ease-out;*/
+}
+
+.tab label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color: black;
+    padding: 20px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.icon-left {
+    margin-right: 15px;
+}
+
+.icon-right {
+    margin-left: auto;
+    border-radius: 50px;
+    background-color: #F2F5F5;
+    color: #007480;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.angel {
+    transform: rotate(180deg);
+}
+
+
+.tab-content {
+    max-height: 0;
+    overflow: hidden;
+    color: black;
+}
+
+.tab-content-items {
+    text-align: start;
+    padding: 10px 15px;
+}
+
+.tab-content-items span {
+    font-size: 14px;
+    color: #656F70;
+}
+
+.result {
+    margin-top: 5px;
+    color: #0C955D;
+}
+
+.analise {
+    margin-top: 5px;
+}
+
+.tab-content-btn {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+
+/* :checked */
+.tab input:checked ~ .tab-content {
+    max-height: 100vh;
+    border-top: 1px solid #E8EDED;
+}
+
+
+/* Icon */
+.tab label::after {
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 7px;*/
+    /*display: block;*/
+    /*width: 3em;*/
+    /*height: 3em;*/
+    /*line-height: 3;*/
+    /*text-align: center;*/
+    /*-webkit-transition: all .35s;*/
+    /*-o-transition: all .35s;*/
+    /*transition: all .35s;*/
+}
+
+.tab input[type=checkbox] + label::after {
+    /*content: "+";*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 13px;*/
+    /*display: block;*/
+    /*width: 32px;*/
+    /*height: 32px;*/
+    /*line-height: 2;*/
+    /*border-radius: 50px;*/
+    /*background-color: #ccc;*/
+    /*text-align: center;*/
+    /*-webkit-transition: all .35s;*/
+    /*-o-transition: all .35s;*/
+    /*transition: all .35s;*/
+}
+
+/*.tab input[type=radio] + label::after {*/
+/*    content: "\25BC";*/
+/*}*/
+
+.tab input[type=checkbox]:checked + angel {
+    transform: rotate(315deg);
+}
+
+/*.tab input[type=radio]:checked + label + .angel {*/
+/*    transform: rotateX(180deg);*/
+/*}*/
