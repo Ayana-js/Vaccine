@@ -48,8 +48,6 @@ const PersonCard = () => {
                 setResult(result)
                 setPassport(passport)
                 setPositiveResult(positiveResult)
-                console.log(result)
-                console.log(positiveResult)
             })
     }, [])
     localStorage.setItem('phone', search)
@@ -59,7 +57,7 @@ const PersonCard = () => {
             setTimeout(() => {
                 setIsFetching(false)
                 setShow(false)
-            }, 1000)
+            }, 100000)
         }
     }, [show])
 
@@ -96,7 +94,7 @@ const PersonCard = () => {
                     </div>
                     <div className="form_radio_group ">
                         <div className="form_radio_group-item" onClick={() => setActive(false)}>
-                            <input id="radio-1" type="radio" name="radio" value="1" checked/>
+                            <input id="radio-1" type="radio" name="radio" value="1" defaultChecked/>
                             <label htmlFor="radio-1" >СЕРТИФИКАТ</label>
                         </div>
                         <div className="form_radio_group-item" onClick={() => {setActive(true)}}>

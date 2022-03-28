@@ -18,7 +18,7 @@ const VaccineInfo = ({propusk}) => {
                 <div className="main__slider">
                     <Slider {...settings} className="slider__content">
                         {propusk.vaccines.map(v =>
-                        <div className="slider__items">
+                        <div key={v.vaccination_date} className="slider__items">
                             <div className="carousel">
                                 <div className="items__title">
                                     <h3 className="vaccine-name">{v.vaccine_name}</h3>

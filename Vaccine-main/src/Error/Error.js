@@ -7,10 +7,12 @@ import logo from "../img/logo.png";
 const Error = () => {
     return (
         <div className='wrapper__error'>
+            <div className="error-item">
             <img src={error} />
             <p className='textError'>Запись отсутствует</p>
             <p className='descriptionError'>Обратитесь в прививочный пункт <br/>
                 для внесения данных в реестр <br/> вакцинированных</p>
+            </div>
             <div className="preload__content_">
                 <div className="logo">
                     <img src={minzdrav} alt=""/>

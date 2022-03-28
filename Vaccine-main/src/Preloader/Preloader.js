@@ -6,7 +6,9 @@ import './Preloader.css'
 const Preloader = () => {
     return (
         <div className="preload ">
-            <div className="loader"></div>
+            <div className="loader-block">
+                <div className="main-loader"></div>
+            </div>
             <div className="preload__content">
                 <div className="logo">
                     <img src={minzdrav} alt=""/>
