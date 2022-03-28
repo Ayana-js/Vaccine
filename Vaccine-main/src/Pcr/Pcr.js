@@ -1,8 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import vector from '../img/Vector.png'
 import './Pcr.css'
-import {useDetectOutsideClick} from "./UseDetectOutsideClick";
-import arrow_up from '../img/arrow-up.png'
 import arrow_down from '../img/arrow-down.png'
 
 const Pcr = ({result, positiveResult, inn, numberId, serialId}) => {
