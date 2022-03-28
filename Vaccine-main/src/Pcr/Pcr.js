@@ -3,9 +3,8 @@ import vector from '../img/Vector.png'
 import './Pcr.css'
 import arrow_down from '../img/arrow-down.png'
 
-const Pcr = ({result, positiveResult, inn, numberId, serialId}) => {
+const Pcr = ({result, positiveResult, inn}) => {
     const [isFetching, setIsFetching] = useState(false)
-    const [click, setClick] = useState()
     const [show, setShow] = useState(false)
 
     useEffect(() => {
@@ -15,9 +14,7 @@ const Pcr = ({result, positiveResult, inn, numberId, serialId}) => {
             }, 5000)
         }
     }, [isFetching]);
-    const onClickblabla = () => {
-        click ? setClick(true) : setClick(false)
-    }
+
     return (
         <>
             {isFetching ?
@@ -51,7 +48,7 @@ const Pcr = ({result, positiveResult, inn, numberId, serialId}) => {
                                                 {positiveResult && positiveResult.length > 20 ? positiveResult.analizName.slice(0, -138) : null}</p>
                                         </div>
                                         <div className="tab-content-btn">
-                                            <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file/?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`}
+                                            <a href={`https://ibank2.cbk.kg/minzdrav/pcrcert-pdf-file-by-date?pin=${inn}&date=${result.dateResult.slice(6,10)}-${result.dateResult.slice(3,5)}-${result.dateResult.slice(0,2)}`}
                                                className="btn__download" onClick={() => setIsFetching(true)} download>
                                                 <span className="donwload__icon"></span>
                                                 Скачать

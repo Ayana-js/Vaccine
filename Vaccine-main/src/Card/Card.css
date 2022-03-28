@@ -33,9 +33,13 @@
 }
 
 .expired_block {
+    margin-top: 10px;
+}
+
+.expired_blick_item {
+    padding: 8px 12px 8px 13.67px;
     display: flex;
     border-radius: 8px;
-    padding: 8px 12px 8px 13.67px;
     background-color: #FEF1F1;
     text-align: start;
 }
@@ -49,6 +53,7 @@
 
 .info_icon {
     background: url('../img/info-circle.png') no-repeat;
+    background-size: contain;
     width: 20px;
     height: 20px;
     margin-right: 9.67px;
@@ -188,6 +193,9 @@
     .form_radio_group {
         width: 2.8in;
     }
+    .expired_block {
+        width: 2.8in;
+    }
 }
 
 @media(min-width: 300px) {
@@ -195,6 +203,9 @@
         width: 3.1in;
     }
     .form_radio_group {
+        width: 3.1in;
+    }
+    .expired_block {
         width: 3.1in;
     }
 }
@@ -206,6 +217,9 @@
     .form_radio_group {
         width: 3.416in;
     }
+    .expired_block {
+        width: 3.416in;
+    }
 }
 
 @media (min-width: 500px) and (max-width: 700px) {
@@ -215,6 +229,9 @@
     .form_radio_group {
         width: 3.7in;
     }
+    .expired_block {
+        width: 3.7in;
+    }
 }
 
 @media (min-width: 701px) and (max-width: 1900px) {
@@ -222,6 +239,9 @@
         width: 4in;
     }
     .form_radio_group {
+        width: 4in;
+    }
+    .expired_block {
         width: 4in;
     }
 }

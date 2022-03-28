@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import QRCode from "qrcode.react";
 import '../App.css';
 import Modal from '../Modal/Modal'
-import {NavLink, useSearchParams} from 'react-router-dom';
+import {useSearchParams} from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
-import logo from '../img/logo.png'
 import './Card.css'
 import Certificates from "../Certificates/Certificates";
 import Pcr from "../Pcr/Pcr";
@@ -50,6 +48,8 @@ const PersonCard = () => {
                 setResult(result)
                 setPassport(passport)
                 setPositiveResult(positiveResult)
+                console.log(result)
+                console.log(positiveResult)
             })
     }, [])
     localStorage.setItem('phone', search)
@@ -68,6 +68,7 @@ const PersonCard = () => {
            <Error />
         </div>
     }
+
     return <div>
         {isFetching || show || propusk === undefined? <Preloader/> :
             <div className='main-block'>
@@ -78,8 +79,10 @@ const PersonCard = () => {
                         <span className='fio'> {propusk.fio} </span>
                     </div>
                     {expired? <div className="expired_block" >
-                        <span className="info_icon"></span>
-                        <p className="expired_text"> По истечении 6 месяцев минздрав <br/> рекомендует пройти повторную <br/> вакцинацию</p>
+                        <div className="expired_blick_item">
+                            <span className="info_icon"></span>
+                            <p className="expired_text"> По истечении 6 месяцев минздрав <br/> рекомендует пройти повторную <br/> вакцинацию</p>
+                        </div>
                     </div> : null}
                     <VaccineInfo propusk={propusk} />
                     <div className='qrBlock'>
@@ -103,7 +106,7 @@ const PersonCard = () => {
                     </div>
                     {active
                         ?
-                        <Pcr  inn={passport.inn} numberId={passport.numberId} serialId={passport.serialId} result={result} positiveResult={positiveResult}/>
+                        <Pcr  inn={passport.inn} result={result}/>
                         :
                         <Certificates inn={passport.inn} numberId={passport.numberId} serialId={passport.serialId}/>}
                 </CardContent></div>}
