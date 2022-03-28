@@ -1,6 +1,9 @@
 .preload {
-    margin-top: 10%;
-    align-items: center;
+    /*margin-top: 0.31in;*/
+    width: 3.416in;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center ;*/
     justify-content: center;
 }
 
@@ -20,11 +23,12 @@
 }
 
 .preload__content {
+    margin-top: 1.52in;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
-    margin: 50px 0;
 }
 
 .logo {
@@ -48,10 +52,14 @@
     font-size: 28px;
 }
 
-.loader-text {
+.int_text {
     font-family: 'Roboto';
-    width: 330px;
+    width: 3.437in;
     text-align: center;
     font-size: 16px;
     line-height: 24px;
+}
+
+.loader-text_span {
+    font-weight: bold;
 }

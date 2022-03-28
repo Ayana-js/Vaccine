@@ -13,15 +13,21 @@
 }
 
 .wrapper__error {
-    margin-top: 20%;
+    margin-top: 1.1in;
+    text-align: center;
 }
 
-.preload__content {
+.wrapper__error img {
+    width: 38px;
+    height: 38px;
+}
+
+.preload__content_ {
+    margin-top: 1.1in;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 50px 0;
 }
 
 .logo {
@@ -43,12 +49,11 @@
 
 .logo span {
     font-size: 28px;
-    font-weight: bold;
 }
 
-.text p {
+.int_text {
     font-family: 'Roboto';
-    width: 330px;
+    width: 3.437in;
     text-align: center;
     font-size: 16px;
     line-height: 24px;

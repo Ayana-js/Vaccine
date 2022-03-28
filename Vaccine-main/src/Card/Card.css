@@ -6,28 +6,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 350px;
-    min-width: 300px;
-    margin: 0 auto;
-    padding-bottom: 200px;
+    width: 100%;
+    background-color: white;
 }
 
 .firstBlock {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-left: 35px;
+    margin-left: 10px;
 }
 
 .userPhoto {
     border-radius: 8px;
-    width: 70px;
-    height: 90px;
+    width: 0.729in;
+    height: 0.958in;
 }
 
 .fio {
-    padding-left: 4%;
+    margin-left: 0.16in;
     font-family: 'Roboto', sans-serif;
+    width: 2.27in;
     font-weight: 400;
     text-align: start;
     font-size: 16px;
@@ -36,8 +34,8 @@
 
 .expired_block {
     display: flex;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 8px 12px 8px 13.67px;
     background-color: #FEF1F1;
     text-align: start;
 }
@@ -53,8 +51,7 @@
     background: url('../img/info-circle.png') no-repeat;
     width: 20px;
     height: 20px;
-    /*padding-bottom: 5px;*/
-    padding-left: 10px;
+    margin-right: 9.67px;
 }
 
 .qrBlock {
@@ -63,7 +60,8 @@
     align-items: center;
     flex-direction: column;
     padding: 20px 0 40px 0;
-    margin-bottom: 20px;
+    width: 3.416in;
+    margin-bottom: 16px;
     box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
 }
 
@@ -75,7 +73,6 @@
     margin-bottom: 17px;
 }
 
-
 .text {
     font-family: 'Open Sans', sans-serif;
 }
@@ -86,11 +83,11 @@
 }
 
 .form_radio_group {
-    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width: 3.416in;
 }
 
 .form_radio_group input[type=radio] {
@@ -171,7 +168,6 @@
 .btn-primary {
     color: #1b1d1d;
     background-color: #ffcc00;
-
 }
 
 .btn-primary:hover {
@@ -185,26 +181,47 @@
     color: #007d82;
 }
 
+@media (min-width: 200px) and (max-width: 299px) {
+    .qrBlock {
+        width: 2.8in;
+    }
+    .form_radio_group {
+        width: 2.8in;
+    }
+}
+
 @media(min-width: 300px) {
-    .main-block {
-        width: 300px;
+    .qrBlock {
+        width: 3.1in;
+    }
+    .form_radio_group {
+        width: 3.1in;
     }
 }
 
 @media( min-width:350px) and ( max-width: 499px) {
-    .main-block {
-        width: 350px;
+    .qrBlock {
+        width: 3.416in;
+    }
+    .form_radio_group {
+        width: 3.416in;
     }
 }
 
 @media (min-width: 500px) and (max-width: 700px) {
-    .main-block {
-        width: 500px;
+    .qrBlock {
+        width: 3.7in;
+    }
+    .form_radio_group {
+        width: 3.7in;
     }
 }
 
 @media (min-width: 701px) and (max-width: 1900px) {
-    .main-block {
-        width: 700px;
+    .qrBlock {
+        width: 4in;
+    }
+    .form_radio_group {
+        width: 4in;
     }
 }

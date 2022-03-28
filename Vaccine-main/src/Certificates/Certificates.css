@@ -3,6 +3,7 @@
 
 
 .activeBlock {
+    width: 3.416in;
     margin-top: 15px;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
@@ -14,10 +15,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-}
-
-.activeBlock {
-    visibility: visible;
 }
 
 .certBlock {
@@ -72,30 +69,40 @@
 }
 
 
-.btn-download {
+.btn-download-cer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
     color: #1b1d1d;
-    width: 160px;
+    width: 1.072in;
     height: 36px;
+    padding: 0 5px 0 5px;
     font-size: 14px;
     border-radius: 8px;
     background: #FEDD2C;
     transition: all 0.3s ease;
 }
 
-.btn-download:hover {
+.btn-download-cer span {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.btn-download-cer:hover {
     background-color: #f5c400;
 }
 
-.btn-download span {
+.btn-download-cer span {
     background: url('../img/download.png') no-repeat;
+    background-size: contain;
     width: 20px;
     height: 20px;
     margin-right: 20px;
+    font-size: 16px;
 }
 
 .loader {
@@ -107,4 +114,34 @@
     width: 30px;
     height: 30px;
     animation: spin 2s linear infinite;
+}
+
+@media (min-width: 200px) and (max-width: 299px) {
+    .activeBlock {
+        width: 2.8in;
+    }
+}
+
+@media(min-width: 300px) and (max-width: 349px) {
+    .activeBlock {
+        width: 3.1in;
+    }
+}
+
+@media( min-width:350px) and ( max-width: 499px) {
+    .activeBlock {
+        width: 3.416in;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    .activeBlock {
+        width: 3.7in;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1900px) {
+    .activeBlock {
+        width: 4in;
+    }
 }

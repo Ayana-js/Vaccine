@@ -8,49 +8,117 @@ p {
     margin: 0;
 }
 
-.slick-track {
-    display: flex;
-}
-
 .main__slider {
     font-family: 'Roboto';
-    width: 330px;
+    width: 3.416in;
 }
 
 .carousel {
     color: #fff;
-    margin: 10px;
-    padding: 16px 12px 0 12px;
-    background: #FFFFFF;
+    margin: 10px 10px 10px 0;
+    padding: 12px;
     box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
     border-radius: 8px;
-    width: 110px;
+    width: 1.5in;
+    height: 1.02in;
 }
 
 .items__title {
     display: flex;
     align-items: center;
     font-size: 15px;
+    height: 0.41in;
     line-height: 22px;
     margin-bottom: 10px;
     color: #007480;
 }
 
-.items__title span {
+.vaccine-name {
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.vaccine-icon {
+    width: 16px;
+    height: 16px;
     margin-left: auto;
-    font-size: 18px;
 }
 
 .items__text {
     font-size: 14px;
     color: #000;
-    padding-bottom: 12px;
 }
 
-.items__text span {
+.vaccine-title {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
     color: #656F70;
 }
 
 .items__text p {
     margin-top: 5px;
+}
+
+@media (min-width: 200px) and (max-width: 299px) {
+    .main__slider {
+        width: 2.8in;
+    }
+    .carousel {
+        width: 1.02in;
+        height: 1.02in;
+    }
+}
+
+@media(min-width: 300px) and (max-width: 349px) {
+    .main__slider {
+        width: 3.1in;
+    }
+    .carousel {
+        width: 1.15in;
+        height: 1.02in;
+    }
+}
+
+@media( min-width:350px) and ( max-width: 499px) {
+    .main__slider {
+        width: 3.6in;
+    }
+    .carousel {
+        width: 1.39in;
+        height: 1.02in;
+    }
+
+    .vaccine-name {
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    .main__slider {
+        width: 3.83in;
+    }
+
+    .carousel {
+        width: 1.5in;
+        height: 1.02in;
+    }
+    .vaccine-name {
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1900px) {
+    .main__slider {
+        width: 4.2in;
+    }
+    .carousel {
+        width: 1.7in;
+        height: 1.02in;
+    }
 }

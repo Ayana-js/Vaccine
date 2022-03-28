@@ -18,12 +18,12 @@ const Certificates = ({active, serialId, numberId, inn}) => {
         {isFetching ?
             <div className="loader">  </div>
             :
-        <div className='activeBlock container'>
+        <div className='activeBlock'>
                 <div className='blocks'>
                     <p className='certText'> Русский </p>
                     <form>
                         <a onClick={() => setIsFetching(true)}
-                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download" download>
+                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download-cer" download>
                             <span></span>
                             Скачать
                         </a>
@@ -33,7 +33,7 @@ const Certificates = ({active, serialId, numberId, inn}) => {
                     <p className='certText'> Кыргызский </p>
                     <form>
                         <a onClick={() => setIsFetching(true)}
-                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download" download>
+                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download-cer" download>
                             <span></span>
                             Скачать
                         </a>
@@ -42,7 +42,7 @@ const Certificates = ({active, serialId, numberId, inn}) => {
                 <div className='blocks'>
                     <p className='certText'> Английский </p>
                     <form>
-                        <NavLink to='/cerEng' className='btn-download'>
+                        <NavLink to='/cerEng' className='btn-download-cer'>
                             <span></span>
                             Скачать
                         </NavLink>
