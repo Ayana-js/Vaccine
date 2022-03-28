@@ -34,10 +34,6 @@
 
 .expired_block {
     margin-top: 10px;
-}
-
-.expired_blick_item {
-    padding: 8px 12px 8px 13.67px;
     display: flex;
     border-radius: 8px;
     background-color: #FEF1F1;
@@ -49,6 +45,9 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    margin: 8px 12px 8px 0;
+    width: 276px;
+
 }
 
 .info_icon {
@@ -56,7 +55,7 @@
     background-size: contain;
     width: 20px;
     height: 20px;
-    margin-right: 9.67px;
+    margin: 9.67px 9.67px 0 13.67px;
 }
 
 .qrBlock {

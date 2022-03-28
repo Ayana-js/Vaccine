@@ -77,10 +77,8 @@ const PersonCard = () => {
                         <span className='fio'> {propusk.fio} </span>
                     </div>
                     {expired? <div className="expired_block" >
-                        <div className="expired_blick_item">
-                            <span className="info_icon"></span>
-                            <p className="expired_text"> По истечении 6 месяцев минздрав <br/> рекомендует пройти повторную <br/> вакцинацию</p>
-                        </div>
+                        <span className="info_icon"></span>
+                        <p className="expired_text"> По истечении 6 месяцев минздрав <br/> рекомендует пройти повторную <br/> вакцинацию</p>
                     </div> : null}
                     <VaccineInfo propusk={propusk} />
                     <div className='qrBlock'>
