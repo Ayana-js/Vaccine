@@ -57,7 +57,7 @@ const PersonCard = () => {
             setTimeout(() => {
                 setIsFetching(false)
                 setShow(false)
-            }, 100000)
+            }, 1000)
         }
     }, [show])
 
