@@ -9,13 +9,14 @@ p {
 }
 
 .main__slider {
+    margin-left: -10px;
     font-family: 'Roboto';
     width: 3.416in;
 }
 
 .carousel {
     color: #fff;
-    margin: 10px 10px 10px 0;
+    margin: 10px 0 10px 10px;
     padding: 12px;
     box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
     border-radius: 8px;
@@ -66,6 +67,7 @@ p {
 @media (min-width: 200px) and (max-width: 299px) {
     .main__slider {
         width: 2.8in;
+        margin-left: -10px;
     }
     .carousel {
         width: 1.02in;
@@ -76,6 +78,7 @@ p {
 @media(min-width: 300px) and (max-width: 349px) {
     .main__slider {
         width: 3.1in;
+        margin-left: -10px;
     }
     .carousel {
         width: 1.15in;
@@ -86,6 +89,7 @@ p {
 @media( min-width:350px) and ( max-width: 499px) {
     .main__slider {
         width: 3.6in;
+        margin-left: -10px;
     }
     .carousel {
         width: 1.39in;
@@ -101,6 +105,7 @@ p {
 @media (min-width: 500px) and (max-width: 700px) {
     .main__slider {
         width: 3.83in;
+        margin-left: -10px;
     }
 
     .carousel {
@@ -116,6 +121,7 @@ p {
 @media (min-width: 701px) and (max-width: 1900px) {
     .main__slider {
         width: 4.2in;
+        margin-left: -10px;
     }
     .carousel {
         width: 1.7in;
