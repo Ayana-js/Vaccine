@@ -10,16 +10,21 @@
     background-color: white;
 }
 
+.css-46bh2p-MuiCardContent-root {
+    padding: 0!important;
+}
+
 .firstBlock {
     display: flex;
     align-items: center;
+    margin-top: 10px;
     margin-left: 10px;
 }
 
 .userPhoto {
     border-radius: 8px;
-    width: 0.729in;
-    height: 0.958in;
+    width: 70px;
+    height: 92px;
 }
 
 .fio {

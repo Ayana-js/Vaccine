@@ -4,38 +4,43 @@ import {NavLink} from "react-router-dom";
 import Preloader from "../Preloader/Preloader";
 
 const Certificates = ({active, serialId, numberId, inn}) => {
-    const [isFetching, setIsFetching] = useState(false)
+    const [isFetchingFirst, setIsFetchingFirst] = useState(false)
+    const [isFetchingSecond, setIsFetchingSecond] = useState(false)
+
 
     useEffect(() => {
-        if (isFetching) {
+        if (isFetchingFirst) {
             setTimeout(() => {
-                setIsFetching(false)
+                setIsFetchingFirst(false)
             }, 5000)
         }
-    }, [isFetching]);
+    }, [isFetchingFirst]);
+
+    useEffect(() => {
+        if (isFetchingSecond) {
+            setTimeout(() => {
+                setIsFetchingSecond(false)
+            }, 5000)
+        }
+    }, [isFetchingSecond]);
+    let isFetching;
     return (
-        <>
-        {isFetching ?
-            <div className="loader">  </div>
-            :
         <div className='activeBlock'>
                 <div className='blocks'>
                     <p className='certText'> Русский </p>
                     <form>
-                        <a onClick={() => setIsFetching(true)}
-                           href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download-cer" download>
-                            <span></span>
-                            Скачать
-                        </a>
+                        {<a onClick={() => setIsFetchingFirst(true)}
+                              href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download-cer" download>
+                            {isFetchingFirst? <div className="loader_mini"></div>: <> <span>  </span> Скачать </> }
+                        </a>}
                     </form>
                 </div>
                 <div className='blocks'>
                     <p className='certText'> Кыргызский </p>
                     <form>
-                        <a onClick={() => setIsFetching(true)}
+                        <a onClick={() => setIsFetchingSecond(true)}
                            href={`https://ibank2.cbk.kg/minzdrav/get-pdf-file?pin=${inn}&seriaId=${serialId}&nomerId=${numberId}`} className="btn-download-cer" download>
-                            <span></span>
-                            Скачать
+                            {isFetchingSecond? <div className="loader_mini"></div>: <> <span>  </span> Скачать </> }
                         </a>
                     </form>
                 </div>
@@ -43,12 +48,12 @@ const Certificates = ({active, serialId, numberId, inn}) => {
                     <p className='certText'> Английский </p>
                     <form>
                         <NavLink to='/cerEng' className='btn-download-cer'>
-                            <span></span>
+                            <span> </span>
                             Скачать
                         </NavLink>
                     </form>
                 </div>
-            </div>} </>
+            </div>
     );
 };
 

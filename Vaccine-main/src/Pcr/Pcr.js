@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import vector from '../img/Vector.png'
+import vectorRed from '../img/Vector_red.png'
 import './Pcr.css'
 import arrow_down from '../img/arrow-down.png'
 
@@ -27,14 +28,13 @@ const Pcr = ({result, positiveResult, inn}) => {
                                 <div className="tab"  >
                                     <input id={result.dateResult} type="checkbox" name="tabs"/>
                                     <label htmlFor={result.dateResult} onClick={() => setShow(prev => !prev)}>
-                                        <img className="icon-left" src={vector} alt=""/>
+                                        <img className="icon-left" src={result.positive? vectorRed: vector} alt=""/>
                                         <div className="data">
-                                            {result ? result.dateResult.slice(0, -9) : null}
+                                            {result ? result.dateResult.slice(0, -9) :  null}
                                             {/*{show && <p className="data-text">Тест активен: до 14 марта 13:00</p>}*/}
                                         </div>
                                         <div className="icon-right">
                                             <img className="arrow" src={arrow_down}/>
-
                                         </div>
                                     </label>
                                     <div className="tab-content">

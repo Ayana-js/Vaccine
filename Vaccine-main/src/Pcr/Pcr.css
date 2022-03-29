@@ -114,6 +114,8 @@
 .main-half {
     width: 3.416in;
     position: relative;
+    margin-top: 15px;
+    min-height: 337px;
 }
 
 .tab {
@@ -190,21 +192,25 @@
 
 .tab-content-items {
     text-align: start;
-    padding: 10px 15px;
+    padding: 14px 15px;
 }
 
 .tab-content-items span {
+    line-height: 20px;
     font-size: 14px;
     color: #656F70;
+    padding: 15px 0;
 }
 
 .result {
-    margin-top: 5px;
+    line-height: 20px;
+    margin-top: 10px;
     color: #0C955D;
 }
 
 .analise {
-    margin-top: 5px;
+    line-height: 20px;
+    margin-top: 10px;
 }
 
 .tab-content-btn {

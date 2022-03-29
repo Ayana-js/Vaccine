@@ -3,7 +3,6 @@ import axios from 'axios'
 import CardContent from '@mui/material/CardContent';
 import QRCode from "qrcode.react";
 import '../App.css';
-import Modal from '../Modal/Modal'
 import {useSearchParams} from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
 import './Card.css'
@@ -39,7 +38,7 @@ const PersonCard = () => {
             .then(res => {
                 setIsFetching(false)
                 const result = res.data.propusk.analyzis
-                const positiveResult = res.data.positiveanalyzis
+                const positiveResult = res.data.propusk.positiveanalyzis
                 const propusk = res.data.propusk
                 const passport = res.data.passport
                 const expired = res.data.propusk.expired
@@ -90,6 +89,7 @@ const PersonCard = () => {
                             style={{width: 180, height: 180}}
                         />
                     </div>
+                    <div>
                     <div className="form_radio_group ">
                         <div className="form_radio_group-item" onClick={() => setActive(false)}>
                             <input id="radio-1" type="radio" name="radio" value="1" defaultChecked/>
@@ -102,9 +102,10 @@ const PersonCard = () => {
                     </div>
                     {active
                         ?
-                        <Pcr  inn={passport.inn} result={result}/>
+                        <Pcr  inn={passport.inn} result={result} positiveResult={positiveResult}/>
                         :
                         <Certificates inn={passport.inn} numberId={passport.numberId} serialId={passport.serialId}/>}
+                    </div>
                 </CardContent></div>}
     </div>
 }

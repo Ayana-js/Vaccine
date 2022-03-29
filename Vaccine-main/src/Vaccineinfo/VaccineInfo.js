@@ -8,9 +8,8 @@ const VaccineInfo = ({propusk}) => {
     const settings = {
         dots: false,
         infinite: false,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
-        // centerMode: true,
         arrows: false,
         variableWidth: true,
     };

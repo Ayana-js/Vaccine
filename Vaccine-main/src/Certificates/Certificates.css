@@ -3,18 +3,21 @@
 
 
 .activeBlock {
+    min-height: 337px;
     width: 3.416in;
     margin-top: 15px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 20px rgba(21, 43, 71, 0.1);
     border-radius: 8px;
 }
 
 .blocks {
     display: flex;
+    box-shadow: 0px 0px 20px rgb(21 43 71 / 10%);
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 20px 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .certBlock {
@@ -27,6 +30,7 @@
 .certText {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    font-weight: 500;
 }
 
 .ant-btn {
@@ -83,12 +87,7 @@
     border-radius: 8px;
     background: #FEDD2C;
     transition: all 0.3s ease;
-}
-
-.btn-download-cer span {
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
     line-height: 20px;
 }
 
@@ -105,14 +104,18 @@
     font-size: 16px;
 }
 
-.loader {
-    margin-top: 15%;
-    border: 3px solid #0092A1;
-    border-top: 3px solid #FFFFFF;
+.loader_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader_mini {
+    border: 1.5px solid black;
+    border-top: 1.5px solid transparent;
     border-radius: 50%;
-    margin-left: 43%;
-    width: 30px;
-    height: 30px;
+    width: 13px;
+    height: 13px;
     animation: spin 2s linear infinite;
 }
 
