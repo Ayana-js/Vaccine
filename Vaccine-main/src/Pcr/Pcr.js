@@ -25,7 +25,7 @@ const Pcr = ({result, positiveResult, inn}) => {
                     <div className="half">
                         {result.map(result =>
                             <>
-                                <div className="tab"  >
+                                <div className="tab">
                                     <input id={result.dateResult} type="checkbox" name="tabs"/>
                                     <label htmlFor={result.dateResult} onClick={() => setShow(prev => !prev)}>
                                         <img className="icon-left" src={result.positive? vectorRed: vector} alt=""/>

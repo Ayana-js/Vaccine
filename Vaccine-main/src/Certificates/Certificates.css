@@ -84,10 +84,10 @@
     height: 36px;
     padding: 0 5px 0 5px;
     font-size: 14px;
-    border-radius: 8px;
+    border-radius: 9px;
     background: #FEDD2C;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: bold;
     line-height: 20px;
 }
 
@@ -98,9 +98,9 @@
 .btn-download-cer span {
     background: url('../img/download.png') no-repeat;
     background-size: contain;
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
     font-size: 16px;
 }
 

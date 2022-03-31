@@ -99,6 +99,15 @@
     width: 3.416in;
 }
 
+.form_radio_group:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.form_radio_group-item:focus {
+    outline: none;
+}
+
 .form_radio_group input[type=radio] {
     font-family: 'Inter', sans-serif;
     display: none;
